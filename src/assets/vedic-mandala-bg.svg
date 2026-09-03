@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none">
+  <!-- Central mandala/yantra pattern inspired by traditional Indian astrology -->
+  <g opacity="0.25" transform="translate(300,300)">
+    <!-- Outer circle -->
+    <circle cx="0" cy="0" r="280" stroke="#B8860B" stroke-width="2.5" fill="none"/>
+    <circle cx="0" cy="0" r="272" stroke="#C6930A" stroke-width="1" fill="none"/>
+    <circle cx="0" cy="0" r="265" stroke="#D4A012" stroke-width="0.8" fill="none" stroke-dasharray="4 3"/>
+    
+    <!-- Zodiac wheel divisions (12 segments) -->
+    <line x1="0" y1="-280" x2="0" y2="-200" stroke="#B8860B" stroke-width="1.5"/>
+    <line x1="140" y1="-242" x2="100" y2="-173" stroke="#B8860B" stroke-width="1.5"/>
+    <line x1="242" y1="-140" x2="173" y2="-100" stroke="#B8860B" stroke-width="1.5"/>
+    <line x1="280" y1="0" x2="200" y2="0" stroke="#B8860B" stroke-width="1.5"/>
+    <line x1="242" y1="140" x2="173" y2="100" stroke="#B8860B" stroke-width="1.5"/>
+    <line x1="140" y1="242" x2="100" y2="173" stroke="#B8860B" stroke-width="1.5"/>
+    <line x1="0" y1="280" x2="0" y2="200" stroke="#B8860B" stroke-width="1.5"/>
+    <line x1="-140" y1="242" x2="-100" y2="173" stroke="#B8860B" stroke-width="1.5"/>
+    <line x1="-242" y1="140" x2="-173" y2="100" stroke="#B8860B" stroke-width="1.5"/>
+    <line x1="-280" y1="0" x2="-200" y2="0" stroke="#B8860B" stroke-width="1.5"/>
+    <line x1="-242" y1="-140" x2="-173" y2="-100" stroke="#B8860B" stroke-width="1.5"/>
+    <line x1="-140" y1="-242" x2="-100" y2="-173" stroke="#B8860B" stroke-width="1.5"/>
+    
+    <!-- Inner circles -->
+    <circle cx="0" cy="0" r="200" stroke="#B8860B" stroke-width="2" fill="none"/>
+    <circle cx="0" cy="0" r="140" stroke="#C6930A" stroke-width="1.5" fill="none"/>
+    <circle cx="0" cy="0" r="90" stroke="#B8860B" stroke-width="1.2" fill="none"/>
+    
+    <!-- Diamond/square (kundali chart shape) rotated 45deg -->
+    <rect x="-130" y="-130" width="260" height="260" stroke="#B8860B" stroke-width="2" fill="none" transform="rotate(45)"/>
+    <rect x="-92" y="-92" width="184" height="184" stroke="#C6930A" stroke-width="1.2" fill="none" transform="rotate(45)"/>
+    
+    <!-- Cross lines inside diamond -->
+    <line x1="-130" y1="0" x2="130" y2="0" stroke="#C6930A" stroke-width="1" transform="rotate(45)"/>
+    <line x1="0" y1="-130" x2="0" y2="130" stroke="#C6930A" stroke-width="1" transform="rotate(45)"/>
+    
+    <!-- Inner star pattern (8-pointed) -->
+    <polygon points="0,-70 20,-20 70,0 20,20 0,70 -20,20 -70,0 -20,-20" stroke="#B8860B" stroke-width="1.5" fill="none"/>
+    <polygon points="0,-50 14,-14 50,0 14,14 0,50 -14,14 -50,0 -14,-14" stroke="#C6930A" stroke-width="1" fill="rgba(184,134,11,0.03)"/>
+    
+    <!-- Central sun/Om symbol circle -->
+    <circle cx="0" cy="0" r="35" stroke="#B8860B" stroke-width="2" fill="none"/>
+    <circle cx="0" cy="0" r="25" stroke="#C6930A" stroke-width="1.5" fill="none"/>
+    <circle cx="0" cy="0" r="15" stroke="#D4A012" stroke-width="1" fill="rgba(184,134,11,0.08)"/>
+    
+    <!-- Lotus petals around center (8 petals) -->
+    <path d="M0,-35 C10,-25 10,-15 0,-5 C-10,-15 -10,-25 0,-35Z" fill="#B8860B" opacity="0.25"/>
+    <path d="M35,0 C25,10 15,10 5,0 C15,-10 25,-10 35,0Z" fill="#B8860B" opacity="0.25"/>
+    <path d="M0,35 C-10,25 -10,15 0,5 C10,15 10,25 0,35Z" fill="#B8860B" opacity="0.25"/>
+    <path d="M-35,0 C-25,-10 -15,-10 -5,0 C-15,10 -25,10 -35,0Z" fill="#B8860B" opacity="0.25"/>
+    <path d="M25,-25 C28,-15 22,-8 15,-15 C22,-22 28,-28 25,-25Z" fill="#C6930A" opacity="0.2"/>
+    <path d="M25,25 C15,28 8,22 15,15 C22,22 28,28 25,25Z" fill="#C6930A" opacity="0.2"/>
+    <path d="M-25,25 C-28,15 -22,8 -15,15 C-22,22 -28,28 -25,25Z" fill="#C6930A" opacity="0.2"/>
+    <path d="M-25,-25 C-15,-28 -8,-22 -15,-15 C-22,-22 -28,-28 -25,-25Z" fill="#C6930A" opacity="0.2"/>
+    
+    <!-- Small dots at zodiac positions -->
+    <circle cx="0" cy="-240" r="4" fill="#B8860B" opacity="0.5"/>
+    <circle cx="120" cy="-208" r="4" fill="#B8860B" opacity="0.5"/>
+    <circle cx="208" cy="-120" r="4" fill="#B8860B" opacity="0.5"/>
+    <circle cx="240" cy="0" r="4" fill="#B8860B" opacity="0.5"/>
+    <circle cx="208" cy="120" r="4" fill="#B8860B" opacity="0.5"/>
+    <circle cx="120" cy="208" r="4" fill="#B8860B" opacity="0.5"/>
+    <circle cx="0" cy="240" r="4" fill="#B8860B" opacity="0.5"/>
+    <circle cx="-120" cy="208" r="4" fill="#B8860B" opacity="0.5"/>
+    <circle cx="-208" cy="120" r="4" fill="#B8860B" opacity="0.5"/>
+    <circle cx="-240" cy="0" r="4" fill="#B8860B" opacity="0.5"/>
+    <circle cx="-208" cy="-120" r="4" fill="#B8860B" opacity="0.5"/>
+    <circle cx="-120" cy="-208" r="4" fill="#B8860B" opacity="0.5"/>
+  </g>
+</svg>

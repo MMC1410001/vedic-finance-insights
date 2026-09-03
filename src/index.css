@@ -1,0 +1,1936 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'Magical Horison';
+  src: url('/src/assets/fonts/magical-horison-font/Magicalhorisonregular-aYDeR.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes star-btn {
+  0%   { offset-distance: 0%; }
+  100% { offset-distance: 100%; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+
+.animate-star-btn {
+  animation: star-btn calc(var(--duration) * 1s) linear infinite;
+}
+
+@layer base {
+  :root {
+    --background: 220 20% 4%;
+    --foreground: 220 10% 90%;
+
+    --card: 220 18% 9%;
+    --card-foreground: 220 10% 90%;
+
+    --popover: 220 18% 9%;
+    --popover-foreground: 220 10% 90%;
+
+    --primary: 43 72% 52%;
+    --primary-foreground: 220 20% 4%;
+
+    --secondary: 239 84% 67%;
+    --secondary-foreground: 220 10% 95%;
+
+    --muted: 220 15% 14%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 239 84% 67%;
+    --accent-foreground: 220 10% 95%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 220 10% 95%;
+
+    --warning: 32 90% 55%;
+    --warning-foreground: 220 20% 4%;
+
+    --favorable: 170 75% 45%;
+    --favorable-foreground: 220 20% 4%;
+
+    --border: 0 0% 100% / 0.1;
+    --input: 220 15% 12%;
+    --ring: 43 72% 52%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 220 20% 5%;
+    --sidebar-foreground: 220 10% 90%;
+    --sidebar-primary: 43 72% 52%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 15% 14%;
+    --sidebar-accent-foreground: 220 10% 90%;
+    --sidebar-border: 0 0% 100% / 0.08;
+    --sidebar-ring: 43 72% 52%;
+
+    /* Brand-extra tokens */
+    --gold: 43 92% 58%;
+    --gold-glow: 43 100% 70%;
+    --cosmic-purple: 262 75% 65%;
+    --cosmic-blue: 220 90% 62%;
+    --surface-elevated: 230 30% 11%;
+
+    --gradient-hero: radial-gradient(ellipse at top, hsl(262 60% 22% / 0.55), transparent 60%), radial-gradient(ellipse at bottom right, hsl(220 80% 25% / 0.4), transparent 55%), linear-gradient(180deg, hsl(230 40% 7%), hsl(230 35% 5%));
+    --gradient-gold: linear-gradient(135deg, hsl(43 92% 58%), hsl(38 95% 50%));
+    --gradient-cosmic: linear-gradient(135deg, hsl(262 75% 60%), hsl(220 90% 55%));
+    --gradient-text: linear-gradient(135deg, hsl(43 100% 70%), hsl(43 92% 55%));
+
+    --shadow-glow: 0 0 60px -10px hsl(43 92% 58% / 0.45);
+    --shadow-cosmic: 0 20px 60px -20px hsl(262 75% 50% / 0.5);
+    --shadow-card: 0 10px 40px -15px hsl(230 50% 2% / 0.6);
+
+    /* Signal tokens */
+    --signal-positive: 142 70% 50%;
+    --signal-positive-soft: 142 50% 16%;
+    --signal-neutral: 43 92% 58%;
+    --signal-neutral-soft: 43 50% 16%;
+    --signal-caution: 0 75% 60%;
+    --signal-caution-soft: 0 50% 18%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  body.landing-page {
+    background-image: var(--gradient-hero);
+    background-attachment: fixed;
+  }
+}
+
+/* Landing page font scope — only Playfair Display + Space Grotesk */
+.landing-fonts {
+  font-family: 'Space Grotesk', system-ui, sans-serif !important;
+}
+.landing-fonts *:not([style*="Playfair"]) {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+@layer utilities {
+  .glass-card {
+    background: hsl(var(--card) / 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(0 0% 100% / 0.12);
+    border-radius: 16px;
+  }
+
+  .glass-card-glow {
+    background: hsl(var(--card) / 0.88);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(0 0% 100% / 0.14);
+    border-radius: 16px;
+    box-shadow:
+      0 0 40px -10px hsl(var(--primary) / 0.2),
+      0 0 80px -20px hsl(var(--secondary) / 0.1);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.3);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px -5px hsl(var(--secondary) / 0.3);
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(43 72% 52%), hsl(43 80% 70%));
+  }
+
+  .text-gradient-cosmic {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(152 69% 35%), hsl(var(--secondary)));
+  }
+
+  .glow-line {
+    filter: drop-shadow(0 0 6px hsl(var(--primary) / 0.5));
+  }
+
+  /* Landing page utilities */
+  .text-gradient-gold {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-gradient-gold { background: var(--gradient-gold); }
+  .bg-gradient-cosmic { background: var(--gradient-cosmic); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-cosmic { box-shadow: var(--shadow-cosmic); }
+  .shadow-card-elevated { box-shadow: var(--shadow-card); }
+  .glass {
+    background: hsl(var(--card) / 0.75);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 1px 0 hsl(0 0% 100% / 0.06) inset, 0 4px 16px -8px hsl(230 30% 30% / 0.08);
+  }
+  .ring-gold-glow { box-shadow: 0 0 0 1px hsl(var(--gold) / 0.4), 0 0 30px hsl(var(--gold) / 0.25); }
+}
+
+/* Star field animation */
+.starfield {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.starfield::before,
+.starfield::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background-image:
+    radial-gradient(1px 1px at 5% 15%, hsl(220 10% 90% / 0.6), transparent),
+    radial-gradient(1px 1px at 20% 30%, hsl(220 10% 80% / 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 35% 8%, hsl(43 72% 52% / 0.35), transparent),
+    radial-gradient(1px 1px at 40% 70%, hsl(220 10% 80% / 0.4), transparent),
+    radial-gradient(2px 2px at 55% 45%, hsl(239 84% 67% / 0.25), transparent),
+    radial-gradient(1.5px 1.5px at 60% 20%, hsl(43 72% 52% / 0.3), transparent),
+    radial-gradient(1px 1px at 70% 85%, hsl(220 10% 80% / 0.45), transparent),
+    radial-gradient(1px 1px at 80% 50%, hsl(220 10% 80% / 0.4), transparent),
+    radial-gradient(1px 1px at 10% 80%, hsl(239 84% 67% / 0.2), transparent),
+    radial-gradient(1.5px 1.5px at 90% 10%, hsl(220 10% 80% / 0.35), transparent),
+    radial-gradient(1px 1px at 50% 50%, hsl(220 10% 80% / 0.3), transparent),
+    radial-gradient(1px 1px at 25% 60%, hsl(170 75% 45% / 0.15), transparent),
+    radial-gradient(1px 1px at 75% 35%, hsl(220 10% 90% / 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 15% 45%, hsl(43 72% 52% / 0.2), transparent),
+    radial-gradient(1px 1px at 85% 75%, hsl(239 84% 67% / 0.18), transparent);
+  background-size: 300px 300px;
+  animation: drift 120s linear infinite;
+}
+
+.starfield::after {
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, hsl(220 10% 90% / 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 28% 55%, hsl(43 72% 52% / 0.3), transparent),
+    radial-gradient(1px 1px at 45% 12%, hsl(220 10% 80% / 0.45), transparent),
+    radial-gradient(2px 2px at 62% 78%, hsl(239 84% 67% / 0.2), transparent),
+    radial-gradient(1px 1px at 78% 42%, hsl(220 10% 80% / 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 92% 65%, hsl(43 72% 52% / 0.25), transparent),
+    radial-gradient(1px 1px at 8% 90%, hsl(220 10% 80% / 0.35), transparent),
+    radial-gradient(1px 1px at 55% 30%, hsl(170 75% 45% / 0.2), transparent),
+    radial-gradient(1.5px 1.5px at 38% 88%, hsl(220 10% 90% / 0.4), transparent),
+    radial-gradient(1px 1px at 68% 18%, hsl(239 84% 67% / 0.22), transparent);
+  background-size: 450px 450px;
+  animation: drift 180s linear infinite reverse;
+  opacity: 0.5;
+}
+
+/* Twinkling stars layer */
+.starfield-twinkle {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.starfield-twinkle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 7% 13%, hsl(43 72% 52% / 0.7), transparent),
+    radial-gradient(1px 1px at 23% 47%, hsl(220 10% 95% / 0.8), transparent),
+    radial-gradient(2px 2px at 41% 29%, hsl(239 84% 67% / 0.6), transparent),
+    radial-gradient(1px 1px at 58% 67%, hsl(220 10% 95% / 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 74% 11%, hsl(43 72% 52% / 0.5), transparent),
+    radial-gradient(1px 1px at 89% 83%, hsl(220 10% 95% / 0.6), transparent),
+    radial-gradient(2px 2px at 16% 71%, hsl(170 75% 45% / 0.4), transparent),
+    radial-gradient(1px 1px at 33% 91%, hsl(220 10% 95% / 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 51% 5%, hsl(239 84% 67% / 0.5), transparent),
+    radial-gradient(1px 1px at 67% 53%, hsl(220 10% 95% / 0.7), transparent),
+    radial-gradient(1px 1px at 82% 37%, hsl(43 72% 52% / 0.4), transparent),
+    radial-gradient(2px 2px at 95% 19%, hsl(220 10% 95% / 0.6), transparent);
+  background-size: 100% 100%;
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+.starfield-twinkle::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 3% 57%, hsl(220 10% 95% / 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 19% 34%, hsl(43 72% 52% / 0.5), transparent),
+    radial-gradient(1px 1px at 37% 76%, hsl(239 84% 67% / 0.4), transparent),
+    radial-gradient(2px 2px at 53% 18%, hsl(220 10% 95% / 0.7), transparent),
+    radial-gradient(1px 1px at 71% 62%, hsl(43 72% 52% / 0.45), transparent),
+    radial-gradient(1.5px 1.5px at 86% 44%, hsl(220 10% 95% / 0.55), transparent),
+    radial-gradient(1px 1px at 44% 95%, hsl(170 75% 45% / 0.35), transparent),
+    radial-gradient(1px 1px at 61% 8%, hsl(220 10% 95% / 0.65), transparent);
+  background-size: 100% 100%;
+  animation: twinkle 6s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes twinkle {
+  0%   { opacity: 0.3; }
+  30%  { opacity: 0.9; }
+  60%  { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+@keyframes drift {
+  from { transform: translateY(0) rotate(0deg); }
+  to { transform: translateY(50%) rotate(2deg); }
+}
+
+/* Shooting star */
+@keyframes shoot {
+  0%   { transform: translateX(0) translateY(0); opacity: 1; }
+  100% { transform: translateX(300px) translateY(150px); opacity: 0; }
+}
+
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 2px rgba(255,255,255,0.6);
+}
+
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to left, transparent, rgba(255,255,255,0.6));
+  transform: translateY(-50%);
+}
+
+.nebula-bg {
+  background:
+    radial-gradient(ellipse at 20% 50%, hsl(239 84% 20% / 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, hsl(43 72% 20% / 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, hsl(239 84% 15% / 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 65% 55%, hsl(170 75% 15% / 0.08) 0%, transparent 40%),
+    hsl(var(--background));
+}
+
+/* Section image overlay utility */
+.section-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, hsl(var(--background)) 100%);
+  pointer-events: none;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1.02); }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(8px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(8px) rotate(-360deg); }
+}
+
+.animate-orbit {
+  animation: orbit 12s linear infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+@keyframes scale-in {
+  0% { transform: scale(0.96); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out forwards;
+}
+
+/* Hide scrollbar for horizontal scroll containers */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Date & Time picker icons — larger and visible on dark backgrounds ── */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(0.8);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+input[type="date"]::-webkit-calendar-picker-indicator:hover,
+input[type="time"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Meteor shower animation */
+@keyframes meteor-fall {
+  0% {
+    opacity: 0;
+    transform: translateX(0) translateY(0) rotate(-35deg);
+  }
+  5% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-300px) translateY(300px) rotate(-35deg);
+  }
+}
+
+/* Floating chat panel entrance */
+@keyframes floatChatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Celestial Orrery ── */
+@keyframes orbit-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Orrery wrapper */
+.celestial-orrery-wrapper {
+  z-index: 0;
+}
+
+/* Glyph field — mystical symbols floating in background */
+.glyph-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.glyph-container {
+  position: absolute;
+  opacity: 0.18;
+}
+
+.glyph-1 {
+  top: 10%;
+  left: 8%;
+  width: 80px;
+  height: 80px;
+  animation: orbit-rotate 40s linear infinite;
+}
+.glyph-1 .part-1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid hsl(43 92% 58% / 0.6);
+  border-radius: 50%;
+}
+.glyph-1 .part-2 {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  border: 1px solid hsl(262 75% 65% / 0.5);
+  border-radius: 50%;
+}
+.glyph-1 .part-3 {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(43 92% 58% / 0.4), transparent);
+}
+
+.glyph-2 {
+  bottom: 15%;
+  right: 10%;
+  width: 60px;
+  height: 60px;
+  animation: orbit-rotate 55s linear infinite reverse;
+}
+.glyph-2 .part-1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid hsl(170 75% 45% / 0.5);
+  border-radius: 4px;
+  transform: rotate(45deg);
+}
+.glyph-2 .part-2 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+  border: 1px solid hsl(43 92% 58% / 0.4);
+  border-radius: 50%;
+}
+
+.glyph-3 {
+  top: 60%;
+  left: 5%;
+  width: 50px;
+  height: 50px;
+  animation: orbit-rotate 70s linear infinite;
+}
+.glyph-3 .part-1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid hsl(262 75% 65% / 0.4);
+  border-radius: 50%;
+}
+.glyph-3 .part-2 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, hsl(43 92% 58% / 0.3), transparent);
+}
+.glyph-3 .part-3 {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(262 75% 65% / 0.3), transparent);
+}
+
+/* Orrery field — orbiting planets */
+.orrery-field {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid hsl(262 75% 65% / 0.15);
+  border-radius: 50%;
+  animation: orbit-rotate linear infinite;
+}
+
+.orbit-1 {
+  width: 200px;
+  height: 200px;
+  margin-top: -100px;
+  margin-left: -100px;
+  animation-duration: 20s;
+}
+.orbit-1 .planet {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  margin-left: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: hsl(43 92% 58%);
+  box-shadow: 0 0 12px 3px hsl(43 92% 58% / 0.5);
+}
+
+.orbit-2 {
+  width: 320px;
+  height: 320px;
+  margin-top: -160px;
+  margin-left: -160px;
+  animation-duration: 35s;
+  animation-direction: reverse;
+}
+.orbit-2 .planet {
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  margin-left: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(262 75% 65%);
+  box-shadow: 0 0 10px 2px hsl(262 75% 65% / 0.5);
+}
+
+.orbit-3 {
+  width: 440px;
+  height: 440px;
+  margin-top: -220px;
+  margin-left: -220px;
+  animation-duration: 50s;
+}
+.orbit-3 .planet {
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  margin-left: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(170 75% 45%);
+  box-shadow: 0 0 10px 2px hsl(170 75% 45% / 0.5);
+}
+
+.orbit-4 {
+  width: 560px;
+  height: 560px;
+  margin-top: -280px;
+  margin-left: -280px;
+  animation-duration: 70s;
+  animation-direction: reverse;
+}
+.orbit-4 .planet {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  margin-left: -2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: hsl(220 10% 80%);
+  box-shadow: 0 0 8px 2px hsl(220 10% 80% / 0.4);
+}
+
+/* ── Divider shimmer animations (used in /kundali section dividers) ── */
+@keyframes dividerShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes dividerShimmerReverse {
+  0%   { background-position: -300% 0; }
+  100% { background-position: 300% 0; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   HERO BIRTH FORM — remove card background when embedded in Hero section
+   ══════════════════════════════════════════════════════════════════════════════ */
+.hero-birth-form form {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.hero-birth-form form > .pt-3 {
+  padding-top: 0 !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   FEEDBACK-THUMB CLEARANCE — theme-neutral (applies to Cosmic AND Vedic)
+
+   CardFeedbackWrapper positions the thumbs up/down absolutely over each card's
+   bottom-right corner, so nothing reserves space for them and they land on
+   whatever content is there. These rules reserve that space.
+
+   Clearance = (card padding-bottom) − 34px, since the thumbs sit 12px off the
+   bottom (sm:bottom-3) and are ~22px tall.
+
+   The sibling rules further down are still scoped to .vedic-theme. The original
+   author left them that way because theme-rules.md freezes the Cosmic theme,
+   noting the overlap would need sign-off before shared spacing was touched. The
+   two cards below were reported as broken in Cosmic and signed off; the rest
+   still await it. Spacing only — no colour or palette is changed here.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* "Loan, EMI, Debt Trap" — the thumbs sat on the Safe EMI sub-card's border.
+   The card has no bottom padding of its own; its 3-panel grid runs to the edge. */
+main .scam-risk-card {
+  padding-bottom: 3.5rem !important; /* 56px → 22px clear */
+}
+
+/* "Suggested Side Incomes" — the thumbs sat on the "N / ACTIVE FOR YOUR CHART"
+   block, which is bottom-right aligned in the legend row. !important is needed
+   to beat the card's own Tailwind p-5 sm:p-6. */
+main .side-incomes-card {
+  padding-bottom: 5.75rem !important; /* 92px → 58px clear */
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   VEDIC THEME — White/Golden Vedic Astrology theme overrides for /kundali
+   Applied via .vedic-theme class on the page wrapper.
+   Forces readable dark text on the light background using !important
+   to override React inline styles.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+.vedic-theme {
+  --vedic-text-primary: #2C1810;
+  --vedic-text-secondary: #503214;
+  --vedic-text-muted: #7A5A30;
+  --vedic-accent: #8B6914;
+  --vedic-accent-bright: #B8860B;
+  --vedic-card-bg: rgba(255, 253, 247, 0.97);
+  --vedic-card-border: rgba(184, 134, 11, 0.25);
+  --vedic-surface: #FFFDF7;
+  --vedic-gold-start: #B8860B;
+  --vedic-gold-mid: #D4A012;
+  --vedic-gold-end: #E8B828;
+  --vedic-gold-gradient: linear-gradient(135deg, #B8860B 0%, #D4A012 45%, #E8B828 100%);
+}
+
+/*
+ * STRATEGY: Override ALL text color and fill within main content.
+ * React inline styles have highest specificity, but !important beats them.
+ * We target `main` (descendant) to avoid affecting the sidebar.
+ */
+
+/* ── Base text color for everything in main ── */
+.vedic-theme main {
+  color: var(--vedic-text-secondary) !important;
+  -webkit-text-fill-color: var(--vedic-text-secondary) !important;
+}
+
+/* Override inline style colors on common text elements */
+.vedic-theme main p,
+.vedic-theme main span,
+.vedic-theme main div,
+.vedic-theme main label,
+.vedic-theme main li,
+.vedic-theme main td,
+.vedic-theme main th,
+.vedic-theme main a {
+  color: var(--vedic-text-secondary) !important;
+  -webkit-text-fill-color: var(--vedic-text-secondary) !important;
+}
+
+/* ── Dark islands — elements with dark backgrounds that need light text preserved ── */
+/* PillarCard buttons (luxury items) use .group class with dark inline bg */
+.vedic-theme main button.group,
+.vedic-theme main button.group *,
+.vedic-theme main .vedic-dark-island,
+.vedic-theme main .vedic-dark-island * {
+  color: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+/* ── Luxury popup detail — fully opaque, no global vedic overrides ── */
+.vedic-theme .luxury-popup-detail,
+.vedic-theme .luxury-popup-detail * {
+  color: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-image: none !important;
+  background-clip: unset !important;
+  -webkit-background-clip: unset !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+.vedic-theme .luxury-popup-detail h4 {
+  color: #2C1810 !important;
+  -webkit-text-fill-color: #2C1810 !important;
+}
+
+.vedic-theme .luxury-popup-detail svg {
+  color: rgba(139, 105, 20, 0.5) !important;
+}
+
+@keyframes luxury-popup-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes luxury-sheet-slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes luxury-sheet-backdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── Preserve Tailwind color utility classes ── */
+.vedic-theme main .text-white {
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+}
+
+.vedic-theme main .text-violet-300\/70 {
+  color: rgb(196 181 253 / 0.7) !important;
+  -webkit-text-fill-color: rgb(196 181 253 / 0.7) !important;
+}
+
+.vedic-theme main .text-violet-400\/70 {
+  color: rgb(167 139 250 / 0.7) !important;
+  -webkit-text-fill-color: rgb(167 139 250 / 0.7) !important;
+}
+
+.vedic-theme main .text-violet-400 {
+  color: rgb(167 139 250) !important;
+  -webkit-text-fill-color: rgb(167 139 250) !important;
+}
+
+.vedic-theme main .text-violet-300 {
+  color: rgb(196 181 253) !important;
+  -webkit-text-fill-color: rgb(196 181 253) !important;
+}
+
+.vedic-theme main .text-violet-300\/50 {
+  color: rgb(196 181 253 / 0.5) !important;
+  -webkit-text-fill-color: rgb(196 181 253 / 0.5) !important;
+}
+
+.vedic-theme main .text-indigo-300 {
+  color: rgb(165 180 252) !important;
+  -webkit-text-fill-color: rgb(165 180 252) !important;
+}
+
+/* ── Gradient text (bg-clip-text) — keep transparent fill ── */
+.vedic-theme main .text-transparent {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* ── Headings — darker for hierarchy ── */
+.vedic-theme main h1,
+.vedic-theme main h2,
+.vedic-theme main h3,
+.vedic-theme main h4,
+.vedic-theme main h5,
+.vedic-theme main h6 {
+  color: var(--vedic-text-primary) !important;
+  -webkit-text-fill-color: var(--vedic-text-primary) !important;
+  text-shadow: none !important;
+  filter: none !important;
+  background-image: none !important;
+  background-clip: unset !important;
+  -webkit-background-clip: unset !important;
+}
+
+/* ── Preserve gold gradient on the main Kundali title ── */
+.vedic-theme main h1.kundali-title-gradient {
+  background: linear-gradient(135deg, #8B6914 0%, #B8860B 30%, #D4A012 55%, #B8860B 80%, #8B6914 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  filter: drop-shadow(0 2px 4px rgba(139,105,20,0.25)) !important;
+}
+
+/* ── Bold text — primary color ── */
+.vedic-theme main strong,
+.vedic-theme main b {
+  color: var(--vedic-text-primary) !important;
+  -webkit-text-fill-color: var(--vedic-text-primary) !important;
+}
+
+/* ── Muted/tiny text ── */
+.vedic-theme main small {
+  color: var(--vedic-text-muted) !important;
+  -webkit-text-fill-color: var(--vedic-text-muted) !important;
+}
+
+/* ── SVG elements — icons ── */
+.vedic-theme main svg {
+  color: var(--vedic-accent-bright) !important;
+}
+
+/* ── SVG text (chart labels) — only override axis/tick labels, not semantic fill ── */
+.vedic-theme main svg text,
+.vedic-theme main svg tspan {
+  fill: var(--vedic-text-muted) !important;
+  color: var(--vedic-text-muted) !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+/* ── Preserve semantic phase colours in income growth chart nodes ──
+   Planet glyph text and growth-index labels use phase colour (gold/teal/pink).
+   These carry the CSS class "phase-colored-text" to opt out of the muted override. ── */
+.vedic-theme main svg text.phase-colored-text,
+.vedic-theme main svg text.phase-colored-text tspan {
+  fill: unset !important;
+  color: unset !important;
+}
+
+/* ── Status icon SVG inside scam/debt panel — preserve semantic fill ── */
+.vedic-theme main .scam-status-icon svg,
+.vedic-theme main .scam-status-icon svg path,
+.vedic-theme main .scam-status-icon svg circle,
+.vedic-theme main .scam-status-icon svg polyline,
+.vedic-theme main .scam-status-icon svg polygon,
+.vedic-theme main .scam-status-icon svg rect,
+.vedic-theme main .scam-status-icon svg line {
+  color: unset !important;
+}
+
+/* ── SVG shapes — preserve their stroke/fill colors ── */
+.vedic-theme main svg path,
+.vedic-theme main svg line,
+.vedic-theme main svg circle,
+.vedic-theme main svg rect,
+.vedic-theme main svg polyline,
+.vedic-theme main svg polygon {
+  color: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+/* ── Recharts specific ── */
+.vedic-theme main .recharts-text {
+  fill: var(--vedic-text-muted) !important;
+}
+
+.vedic-theme main .recharts-legend-item-text {
+  color: var(--vedic-text-secondary) !important;
+  -webkit-text-fill-color: var(--vedic-text-secondary) !important;
+}
+
+/* ── Card containers — traditional Indian astrology style with warm cream and gold ── */
+.vedic-theme main .rounded-2xl {
+  background: linear-gradient(165deg, #FFFDF7 0%, #FFF9EC 50%, #FFFBF2 100%) !important;
+  border: 1.5px solid rgba(184, 134, 11, 0.25) !important;
+  border-color: rgba(184, 134, 11, 0.25) !important;
+  box-shadow:
+    0 2px 8px rgba(139, 105, 20, 0.06),
+    0 8px 32px rgba(139, 105, 20, 0.04),
+    inset 0 1px 0 rgba(255, 253, 247, 1),
+    inset 0 -1px 0 rgba(184, 134, 11, 0.05) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Traditional gold border on cards */
+.vedic-theme main .rounded-2xl::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(
+    145deg,
+    rgba(184, 134, 11, 0.6) 0%,
+    rgba(212, 160, 18, 0.3) 25%,
+    rgba(232, 184, 40, 0.5) 50%,
+    rgba(212, 160, 18, 0.25) 75%,
+    rgba(184, 134, 11, 0.55) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Subtle warm shimmer — traditional gold gleam */
+.vedic-theme main .rounded-2xl::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(184, 134, 11, 0.03),
+    rgba(212, 160, 18, 0.06),
+    rgba(184, 134, 11, 0.03),
+    transparent
+  );
+  animation: vedic-shimmer 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes vedic-shimmer {
+  0% { left: -100%; opacity: 0; }
+  15% { opacity: 1; }
+  50% { left: 100%; opacity: 0.8; }
+  65% { opacity: 0; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* ── Nested rounded-xl inside cards — warm cream ── */
+.vedic-theme main .rounded-xl {
+  background: rgba(255, 252, 245, 0.7) !important;
+  border: 1px solid rgba(184, 134, 11, 0.12) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 253, 247, 0.9), 0 1px 3px rgba(139,105,20,0.03) !important;
+}
+
+/* ── Rounded-lg elements — warm ivory ── */
+.vedic-theme main .rounded-lg {
+  background: rgba(255, 252, 245, 0.6) !important;
+  border-color: rgba(184, 134, 11, 0.1) !important;
+}
+
+/* ── Pill badges — traditional gold accent pills ── */
+.vedic-theme main .rounded-full:not(.investment-bar-track):not(.investment-bar-fill):not(.emi-bar-fill):not(.boost-wealth-btn):not(.phase-dot):not(.legend-dot):not([data-intensity]) {
+  background: linear-gradient(135deg, rgba(184, 134, 11, 0.06), rgba(212, 160, 18, 0.1)) !important;
+  border-color: rgba(184, 134, 11, 0.2) !important;
+}
+
+/* ── Preserve semantic colors ── */
+.vedic-theme main [class*="text-green"],
+.vedic-theme main [class*="text-emerald"] {
+  color: #166534 !important;
+  -webkit-text-fill-color: #166534 !important;
+}
+
+.vedic-theme main [class*="text-red"],
+.vedic-theme main [class*="text-rose"] {
+  color: #9F1239 !important;
+  -webkit-text-fill-color: #9F1239 !important;
+}
+
+/* ── Particles canvas — subtle golden in light theme ── */
+.vedic-theme canvas {
+  opacity: 0.15 !important;
+}
+
+/* ── Loading spinner ── */
+.vedic-theme main .animate-spin {
+  color: #B8860B !important;
+  border-color: rgba(184, 134, 11, 0.12) !important;
+  border-top-color: #B8860B !important;
+}
+
+/* ── Income Growth Card — Vedic theme enhancement ── */
+.vedic-theme main .income-growth-card {
+  background: linear-gradient(165deg, #FFFDF7 0%, #FFF9EC 50%, #FFFBF2 100%) !important;
+  border: 1.5px solid rgba(184, 134, 11, 0.2) !important;
+  box-shadow:
+    0 8px 32px rgba(139, 105, 20, 0.05),
+    0 2px 8px rgba(139, 105, 20, 0.04),
+    inset 0 1px 0 rgba(255, 253, 247, 1),
+    0 0 0 1px rgba(184, 134, 11, 0.1) !important;
+  backdrop-filter: none !important;
+}
+
+.vedic-theme main .income-growth-card h3 {
+  color: #2C1810 !important;
+  -webkit-text-fill-color: #2C1810 !important;
+}
+
+/* Chart SVG text labels — year/age */
+.vedic-theme main .income-growth-card svg text {
+  fill: #503214 !important;
+  color: #503214 !important;
+}
+
+/* Grid lines — warm gold tone */
+.vedic-theme main .income-growth-card svg line {
+  stroke: rgba(184, 134, 11, 0.08) !important;
+}
+
+/* Y-axis labels — muted warm */
+.vedic-theme main .income-growth-card svg text[text-anchor="end"] {
+  fill: #7A5A30 !important;
+}
+
+/* Legend text */
+.vedic-theme main .income-growth-card .flex.gap-3 span,
+.vedic-theme main .income-growth-card .flex.gap-5 span {
+  color: #503214 !important;
+  -webkit-text-fill-color: #503214 !important;
+}
+
+/* Boost button — premium gold gradient */
+.vedic-theme main .income-growth-card a.boost-wealth-btn {
+  background: linear-gradient(135deg, #F2C572, #FFDFA3) !important;
+  color: #2A0E4A !important;
+  -webkit-text-fill-color: #2A0E4A !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(242, 197, 114, 0.35) !important;
+  font-weight: 700 !important;
+}
+
+/* The node tooltip used to live inside this card as an in-flow panel; it is now
+   portalled to <body> (outside `main`), so it sets its own theme colours in
+   IncomeGrowthTimeline.tsx and needs no override here. */
+
+/* ── Best Months For Wealth Card — Vedic theme enhancement ── */
+.vedic-theme main .best-months-card {
+  background: linear-gradient(165deg, #FFFDF7 0%, #FFF9EC 50%, #FFFBF2 100%) !important;
+  border: 1.5px solid rgba(184, 134, 11, 0.2) !important;
+  box-shadow:
+    0 8px 32px rgba(139, 105, 20, 0.05),
+    0 2px 8px rgba(139, 105, 20, 0.04),
+    inset 0 1px 0 rgba(255, 253, 247, 1),
+    0 0 0 1px rgba(184, 134, 11, 0.1) !important;
+  backdrop-filter: none !important;
+}
+
+.vedic-theme main .best-months-card h3 {
+  color: #2C1810 !important;
+  -webkit-text-fill-color: #2C1810 !important;
+}
+
+/* Month pills — traditional gold pills */
+.vedic-theme main .best-months-card .rounded-full {
+  background: linear-gradient(135deg, rgba(184, 134, 11, 0.05), rgba(212, 160, 18, 0.1)) !important;
+  border: 1px solid rgba(184, 134, 11, 0.22) !important;
+  color: #5A4510 !important;
+  -webkit-text-fill-color: #5A4510 !important;
+  box-shadow: 0 2px 8px rgba(139, 105, 20, 0.06), inset 0 1px 0 rgba(255,253,247,0.6) !important;
+}
+
+/* ── Peak Earning Years Card — Vedic theme enhancement ── */
+.vedic-theme main .peak-earning-card {
+  background: linear-gradient(165deg, #FFFDF7 0%, #FFF9EC 50%, #FFFBF2 100%) !important;
+  border: 1.5px solid rgba(184, 134, 11, 0.2) !important;
+  box-shadow:
+    0 8px 32px rgba(139, 105, 20, 0.05),
+    0 2px 8px rgba(139, 105, 20, 0.04),
+    inset 0 1px 0 rgba(255, 253, 247, 1),
+    0 0 0 1px rgba(184, 134, 11, 0.1) !important;
+  backdrop-filter: none !important;
+}
+
+.vedic-theme main .peak-earning-card h3 {
+  color: #2C1810 !important;
+  -webkit-text-fill-color: #2C1810 !important;
+}
+
+/* Year numbers — warm gold accent */
+.vedic-theme main .peak-earning-card p.font-bold {
+  color: #B8860B !important;
+  -webkit-text-fill-color: #B8860B !important;
+}
+
+/* Intensity badges — warm gold (excludes node circles which use data-intensity) */
+.vedic-theme main .peak-earning-card .rounded-full:not([data-intensity]) {
+  background: linear-gradient(135deg, rgba(184, 134, 11, 0.06), rgba(212, 160, 18, 0.12)) !important;
+  border: 1px solid rgba(184, 134, 11, 0.22) !important;
+  color: #5A4510 !important;
+  -webkit-text-fill-color: #5A4510 !important;
+}
+
+/* Node outer ring — per intensity */
+.vedic-theme main .peak-earning-card .rounded-full.w-10[data-intensity="high"] {
+  background: rgba(47, 191, 159, 0.08) !important;
+  border: 2px solid rgba(47, 191, 159, 0.35) !important;
+  box-shadow: 0 0 16px rgba(47, 191, 159, 0.15), 0 4px 12px rgba(0,0,0,0.02) !important;
+}
+.vedic-theme main .peak-earning-card .rounded-full.w-10[data-intensity="very-high"] {
+  background: rgba(184, 134, 11, 0.08) !important;
+  border: 2px solid rgba(184, 134, 11, 0.35) !important;
+  box-shadow: 0 0 16px rgba(139, 105, 20, 0.15), 0 4px 12px rgba(0,0,0,0.02) !important;
+}
+.vedic-theme main .peak-earning-card .rounded-full.w-10[data-intensity="peak"] {
+  background: rgba(212, 160, 18, 0.1) !important;
+  border: 2px solid rgba(212, 160, 18, 0.4) !important;
+  box-shadow: 0 0 16px rgba(212, 160, 18, 0.18), 0 4px 12px rgba(0,0,0,0.02) !important;
+}
+
+/* Inner dot — per intensity */
+.vedic-theme main .peak-earning-card .rounded-full.w-3\.5[data-intensity="high"] {
+  background: #2FBF9F !important;
+  box-shadow: 0 0 10px rgba(47, 191, 159, 0.6) !important;
+  border: none !important;
+}
+.vedic-theme main .peak-earning-card .rounded-full.w-3\.5[data-intensity="very-high"] {
+  background: linear-gradient(135deg, #B8860B, #D4A012) !important;
+  box-shadow: 0 0 10px rgba(184, 134, 11, 0.5) !important;
+  border: none !important;
+}
+.vedic-theme main .peak-earning-card .rounded-full.w-3\.5[data-intensity="peak"] {
+  background: linear-gradient(135deg, #D4A012, #E8B828) !important;
+  box-shadow: 0 0 10px rgba(212, 160, 18, 0.6) !important;
+  border: none !important;
+}
+
+/* Vertical connector line — warm gold */
+.vedic-theme main .peak-earning-card .w-\[2px\] {
+  background: linear-gradient(to bottom, rgba(184, 134, 11, 0.25), rgba(212, 160, 18, 0.12)) !important;
+}
+
+/* Description text */
+.vedic-theme main .peak-earning-card .text-\[11px\] {
+  color: #503214 !important;
+  -webkit-text-fill-color: #503214 !important;
+}
+
+/* ── Income Growth Card — preserve legend dot colors ── */
+.vedic-theme main .legend-dot.rounded-full {
+  background: var(--dot-bg) !important;
+  border: none !important;
+}
+
+/* ── Sudden Wealth Chart — Vedic theme enhancement ── */
+.vedic-theme main .sudden-wealth-card {
+  background: linear-gradient(165deg, #FFFDF7 0%, #FFF9EC 50%, #FFFBF2 100%) !important;
+  border: 1.5px solid rgba(184, 134, 11, 0.2) !important;
+  box-shadow:
+    0 8px 32px rgba(139, 105, 20, 0.05),
+    0 2px 8px rgba(139, 105, 20, 0.04),
+    inset 0 1px 0 rgba(255, 253, 247, 1),
+    0 0 0 1px rgba(184, 134, 11, 0.1) !important;
+  backdrop-filter: none !important;
+}
+
+.vedic-theme main .sudden-wealth-card h3 {
+  color: #2C1810 !important;
+  -webkit-text-fill-color: #2C1810 !important;
+}
+
+/* Curve line — warm plum-mauve instead of red */
+.vedic-theme main .sudden-wealth-card .sw-curve-line {
+  stroke: #8B5A3C !important;
+  filter: drop-shadow(0 0 4px rgba(139, 90, 60, 0.4)) !important;
+}
+
+/* Area gradient stops — warm amber/bronze tones */
+.vedic-theme main .sudden-wealth-card .sw-grad-stop-1 {
+  stop-color: #B8860B !important;
+  stop-opacity: 0.3 !important;
+}
+
+.vedic-theme main .sudden-wealth-card .sw-grad-stop-2 {
+  stop-color: #D4A843 !important;
+  stop-opacity: 0.15 !important;
+}
+
+.vedic-theme main .sudden-wealth-card .sw-grad-stop-3 {
+  stop-color: #F2C572 !important;
+  stop-opacity: 0.04 !important;
+}
+
+/* Axis lines — warm gold */
+.vedic-theme main .sudden-wealth-card svg line[stroke="#F2C572"] {
+  stroke: #B8860B !important;
+}
+
+/* Axis arrows — warm gold */
+.vedic-theme main .sudden-wealth-card svg polygon[fill="#F2C572"] {
+  fill: #B8860B !important;
+}
+
+/* Axis label text */
+.vedic-theme main .sudden-wealth-card svg text[fill="#F2C572"] {
+  fill: #8B6914 !important;
+}
+
+/* Probability tick labels */
+.vedic-theme main .sudden-wealth-card svg text[fill="#4FD1C5"] {
+  fill: #8B6914 !important;
+}
+
+/* Age tick labels */
+.vedic-theme main .sudden-wealth-card svg text[fill="rgba(214,198,245,0.75)"] {
+  fill: #6B5A3D !important;
+}
+
+/* Peak window age labels (bold golden) */
+.vedic-theme main .sudden-wealth-card svg text[fill="#F2C572"][font-weight="700"] {
+  fill: #8B6914 !important;
+}
+
+/* Event label text */
+.vedic-theme main .sudden-wealth-card svg text[fill="#F2C572"][font-weight="600"] {
+  fill: #6B4E0A !important;
+}
+
+/* Peak window rectangle */
+.vedic-theme main .sudden-wealth-card svg rect[stroke="#2FBF9F"] {
+  stroke: #B8860B !important;
+  fill: rgba(184, 134, 11, 0.04) !important;
+}
+
+/* Event dots — warm gold instead of teal */
+.vedic-theme main .sudden-wealth-card svg circle[fill="#2FBF9F"] {
+  fill: #B8860B !important;
+  filter: drop-shadow(0 0 8px rgba(184, 134, 11, 0.5)) !important;
+}
+
+.vedic-theme main .sudden-wealth-card svg circle[fill="rgba(47,191,159,0.12)"] {
+  fill: rgba(184, 134, 11, 0.12) !important;
+}
+
+/* ── AF-085: breathing room under the chart so the absolutely-positioned
+   thumbs up/down (CardFeedbackWrapper, sm:bottom-3 sm:right-4) stop sitting on
+   the chart's bottom-right axis labels.
+
+   Still scoped to .vedic-theme: theme-rules.md rule 1 freezes the Cosmic theme,
+   and CardFeedbackWrapper is shared by 11 cards. The overlap does reproduce in
+   Cosmic — .scam-risk-card and .side-incomes-card were reported and signed off,
+   and now live in the theme-neutral block above. The cards below have not been
+   signed off, so they stay Vedic-only. ── */
+.vedic-theme main .sudden-wealth-card .sw-chart-body {
+  padding-bottom: 3rem !important;
+}
+
+/* Values are per card because each one's own bottom padding differs; the
+   comment records the measured clearance so the next person can re-tune
+   without guessing.
+
+   Clearance = (card padding-bottom) − 34px, since the thumbs sit 12px off the
+   bottom (sm:bottom-3) and are ~22px tall. */
+/* "Your Income Growth": pad the scrollable chart body, not the card, so the
+   horizontal scrollbar stays attached to the chart. */
+.vedic-theme main .income-growth-card .ig-chart-body {
+  padding-bottom: 5.75rem !important; /* → ~55px clear */
+}
+
+.vedic-theme main .luxury-card-outer {
+  padding-bottom: 6.25rem !important; /* → ~55px clear */
+}
+
+.vedic-theme main .business-start-card {
+  padding-bottom: 6.25rem !important; /* → ~55px clear */
+}
+
+.vedic-theme main .fi-timeline-card {
+  padding-bottom: 5.25rem !important; /* → ~55px clear */
+}
+
+/* KNOWN BAD: 1.25rem is 20px, less than the 34px the thumbs occupy, so this
+   reserves no clear space at all — the annotation it used to carry ("~55px
+   clear") was arithmetically impossible. Left at its shipped value because this
+   card was outside the reported scope; needs its own sign-off to re-tune. */
+.vedic-theme main .financial-risk-card {
+  padding-bottom: 1.25rem !important;
+}
+
+/* Crosshair dashed lines — warm gold */
+.vedic-theme main .sudden-wealth-card svg line[stroke="#2FBF9F"] {
+  stroke: #D4A843 !important;
+}
+
+/* Peak badge */
+.vedic-theme main .sudden-wealth-card span[style*="color: rgb(79, 209, 197)"],
+.vedic-theme main .sudden-wealth-card span[style*="#4FD1C5"] {
+  color: #8B6914 !important;
+  -webkit-text-fill-color: #8B6914 !important;
+  background: rgba(184, 134, 11, 0.08) !important;
+  border-color: rgba(184, 134, 11, 0.2) !important;
+}
+
+/* ── Alternating section backgrounds — Traditional warm cream (Vedic theme) ── */
+.vedic-theme main #kundali-earnings,
+.vedic-theme main #kundali-investments {
+  background: linear-gradient(180deg, rgba(184, 134, 11, 0.02) 0%, rgba(212, 160, 18, 0.04) 50%, rgba(184, 134, 11, 0.02) 100%) !important;
+  border-top: 1px solid rgba(184, 134, 11, 0.12) !important;
+  border-bottom: 1px solid rgba(184, 134, 11, 0.12) !important;
+}
+
+/* ── Premium page background — Traditional Indian Astrology style ── */
+.vedic-theme {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(198, 147, 10, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse at 0% 0%, rgba(212, 160, 18, 0.05) 0%, transparent 40%),
+    radial-gradient(ellipse at 100% 0%, rgba(212, 160, 18, 0.05) 0%, transparent 40%),
+    radial-gradient(ellipse at 100% 100%, rgba(198, 147, 10, 0.04) 0%, transparent 40%),
+    radial-gradient(ellipse at 0% 100%, rgba(198, 147, 10, 0.04) 0%, transparent 40%),
+    linear-gradient(180deg, #FFFDF7 0%, #FFF9EC 30%, #FFFCF5 60%, #FFF8E8 100%) !important;
+}
+
+/* ── Vedic theme decorative background elements ── */
+.vedic-theme .vedic-mandala-top {
+  position: absolute;
+  bottom: -340px;
+  right: -160px;
+  width: 420px;
+  height: 420px;
+  background: url('/src/assets/vedic-mandala-bg.svg') no-repeat center center;
+  background-size: contain;
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Vedic corner ornaments — now rendered as DOM elements for PDF compatibility ── */
+/* CSS pseudo-elements disabled — see FinancialKundali.tsx for the real <img> elements */
+
+/* Lighter card borders on mobile for vedic theme */
+@media (max-width: 767px) {
+  .vedic-theme main .rounded-2xl::after {
+    padding: 1px;
+    background: linear-gradient(
+      145deg,
+      rgba(184, 134, 11, 0.35) 0%,
+      rgba(212, 160, 18, 0.15) 25%,
+      rgba(232, 184, 40, 0.3) 50%,
+      rgba(212, 160, 18, 0.15) 75%,
+      rgba(184, 134, 11, 0.3) 100%
+    );
+  }
+}
+
+/* ── Vedic golden sparkle dots scattered ── */
+@keyframes vedic-sparkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+}
+
+.vedic-theme .vedic-sparkle-1,
+.vedic-theme .vedic-sparkle-2,
+.vedic-theme .vedic-sparkle-3 {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #C6930A;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  animation: vedic-sparkle 3s ease-in-out infinite;
+}
+
+/* ── Vedic theme golden border top accent ── */
+.vedic-theme main {
+  border-top: 3px solid transparent;
+  background-image: linear-gradient(#FFFDF7, #FFFDF7), 
+    linear-gradient(90deg, transparent 0%, rgba(184,134,11,0.5) 15%, rgba(212,160,18,0.7) 50%, rgba(184,134,11,0.5) 85%, transparent 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* ── Premium heading treatment — warm dark brown gradient on h3 inside cards ── */
+.vedic-theme main .rounded-2xl > div > h3,
+.vedic-theme main .rounded-2xl > div > .flex > h3 {
+  background: linear-gradient(135deg, #2C1810 0%, #503214 50%, #2C1810 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  font-weight: 700 !important;
+}
+
+/* ── Traditional SVG icon treatment — warm gold on icons ── */
+.vedic-theme main svg.lucide-icon,
+.vedic-theme main svg[class*="lucide"] {
+  color: #B8860B !important;
+  filter: drop-shadow(0 1px 2px rgba(139, 105, 20, 0.15));
+}
+
+/* ── Traditional loading/spinner ── */
+.vedic-theme main .animate-spin {
+  color: #B8860B !important;
+  border-color: rgba(184, 134, 11, 0.12) !important;
+  border-top-color: #B8860B !important;
+}
+
+/* ── Traditional scrollbar for vedic theme ── */
+.vedic-theme ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.vedic-theme ::-webkit-scrollbar-track {
+  background: rgba(255, 252, 245, 0.5);
+}
+
+.vedic-theme ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(184, 134, 11, 0.25), rgba(212, 160, 18, 0.35));
+  border-radius: 3px;
+}
+
+.vedic-theme ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(184, 134, 11, 0.4), rgba(212, 160, 18, 0.5));
+}
+
+/* ── Golden gradient text for category/section headers (Vedic theme) ── */
+.vedic-theme main span[style*="Cormorant Garamond"] {
+  background: linear-gradient(135deg, #8B6914 0%, #B8860B 25%, #D4A012 50%, #E8B828 75%, #B8860B 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  text-shadow: none !important;
+  filter: drop-shadow(0 2px 4px rgba(139, 105, 20, 0.2)) !important;
+}
+
+/* ── Boost Your Wealth button — golden gradient (Vedic theme) ── */
+.vedic-theme main .income-growth-card a.boost-wealth-btn {
+  background: linear-gradient(135deg, #F2C572, #FFDFA3) !important;
+  color: #2A0E4A !important;
+  -webkit-text-fill-color: #2A0E4A !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(242, 197, 114, 0.35) !important;
+  font-weight: 700 !important;
+}
+
+.vedic-theme main .income-growth-card a.boost-wealth-btn svg {
+  color: #2A0E4A !important;
+}
+
+/* ── Sudden Wealth Gains chart title — keep default vedic heading style (no golden gradient) ── */
+
+/* ── Best Time to Start Business — actual date golden gradient (Vedic theme) ── */
+.vedic-theme main .best-business-date {
+  background: linear-gradient(135deg, #8B6914 0%, #B8860B 25%, #D4A012 50%, #E8B828 75%, #B8860B 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* ── Financial Independence age — golden gradient on "Age XX–XX" text (Vedic theme) ── */
+.vedic-theme main .fi-age-text {
+  background: linear-gradient(135deg, #8B6914 0%, #B8860B 25%, #D4A012 50%, #E8B828 75%, #B8860B 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* ── FI card "financial independence?" span — golden gradient (Vedic theme) ── */
+.vedic-theme main .fi-independence-text {
+  background: linear-gradient(135deg, #8B6914 0%, #B8860B 25%, #D4A012 50%, #E8B828 75%, #B8860B 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   VEDIC THEME — Additional Traditional Indian Astrology Styling
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Zodiac badge — golden mandala style instead of purple ── */
+.vedic-theme main #kundali-overview .rounded-2xl:first-child {
+  background: linear-gradient(135deg, #FFF9EC, #FFFDF7) !important;
+  border: 1.5px solid rgba(184, 134, 11, 0.3) !important;
+  box-shadow: 
+    0 0 20px rgba(184, 134, 11, 0.1),
+    inset 0 0 15px rgba(232, 184, 40, 0.05) !important;
+}
+
+/* ── Section divider lines — warm gold with shimmer ── */
+.vedic-theme main .h-\[1px\],
+.vedic-theme main .h-\[2px\] {
+  background: linear-gradient(90deg, transparent, rgba(184, 134, 11, 0.3), rgba(212, 160, 18, 0.5), rgba(184, 134, 11, 0.3), transparent) !important;
+}
+
+/* ── Vedic theme section divider shimmer layers — warm gold tones ── */
+.vedic-theme main section[id^="kundali-"] .flex.items-center.gap-2 .relative.h-\[1px\] > div:first-child,
+.vedic-theme main section[id^="kundali-"] .flex.items-center.gap-2 .relative.h-\[2px\] > div:first-child,
+.vedic-theme main section[id^="kundali-"] .flex.items-center.gap-2 .relative.sm\:h-\[2px\] > div:first-child {
+  background: linear-gradient(90deg, transparent 0%, rgba(184, 134, 11, 0.3) 40%, rgba(212, 160, 18, 0.6) 100%) !important;
+}
+
+.vedic-theme main section[id^="kundali-"] .flex.items-center.gap-2 .relative.h-\[1px\] > div:nth-child(2),
+.vedic-theme main section[id^="kundali-"] .flex.items-center.gap-2 .relative.h-\[2px\] > div:nth-child(2),
+.vedic-theme main section[id^="kundali-"] .flex.items-center.gap-2 .relative.sm\:h-\[2px\] > div:nth-child(2) {
+  background: linear-gradient(90deg, transparent 0%, transparent 20%, rgba(184, 134, 11, 0.8) 45%, rgba(232, 184, 40, 1) 50%, rgba(184, 134, 11, 0.8) 55%, transparent 80%, transparent 100%) !important;
+}
+
+.vedic-theme main section[id^="kundali-"] .flex.items-center.gap-2 .relative.h-\[1px\] > div:nth-child(3),
+.vedic-theme main section[id^="kundali-"] .flex.items-center.gap-2 .relative.h-\[2px\] > div:nth-child(3),
+.vedic-theme main section[id^="kundali-"] .flex.items-center.gap-2 .relative.sm\:h-\[2px\] > div:nth-child(3) {
+  background: linear-gradient(90deg, transparent 0%, rgba(184, 134, 11, 0.2) 40%, rgba(212, 160, 18, 0.5) 100%) !important;
+}
+
+/* ── Vedic sidebar — warm cream with traditional border ── */
+.vedic-theme aside {
+  background: linear-gradient(180deg, #FFFDF7 0%, #FFF9EC 40%, #FFF5E0 100%) !important;
+  border-right: 1.5px solid rgba(184, 134, 11, 0.15) !important;
+  position: relative;
+}
+
+/* Sidebar decorative top border */
+.vedic-theme aside::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #B8860B, #D4A012, #E8B828, #D4A012, #B8860B, transparent);
+  opacity: 0.8;
+}
+
+/* ── Mobile header — warm cream ── */
+.vedic-theme .lg\:hidden.fixed {
+  background: rgba(255, 253, 247, 0.97) !important;
+  border-bottom: 1px solid rgba(184, 134, 11, 0.12) !important;
+}
+
+/* ── Vedic theme Om/Aum decorative watermark — removed (too prominent) ── */
+
+/* ── Vedic theme section divider title text ── */
+.vedic-theme main section[id^="kundali-"] .flex.items-center.gap-2 > span {
+  color: #5C3D0A !important;
+  -webkit-text-fill-color: #5C3D0A !important;
+  text-shadow: 0 0 12px rgba(184, 134, 11, 0.2) !important;
+}
+
+/* ── Recharts — warm tones ── */
+.vedic-theme main .recharts-text {
+  fill: #7A5A30 !important;
+}
+
+.vedic-theme main .recharts-legend-item-text {
+  color: #503214 !important;
+  -webkit-text-fill-color: #503214 !important;
+}
+
+/* ── Best month chips — preserve gold gradient in Vedic theme ── */
+.vedic-theme .best-month-chip {
+  background: linear-gradient(135deg, #F2C572 0%, #FFDFA3 100%) !important;
+  color: #5C3D0A !important;
+  -webkit-text-fill-color: #5C3D0A !important;
+  border: 2px solid #D4A84B !important;
+  box-shadow: 0 3px 12px rgba(212,168,75,0.4), inset 0 1px 0 rgba(255,255,255,0.4) !important;
+}
+
+/* ── Vedic theme: Feedback popup panel (fixed bottom-left overlay) ── */
+.vedic-theme .feedback-panel {
+  background: rgba(255, 253, 247, 0.97) !important;
+  border: 1px solid rgba(184, 134, 11, 0.25) !important;
+  box-shadow:
+    0 20px 60px rgba(139, 105, 20, 0.15),
+    0 0 30px rgba(184, 134, 11, 0.08) !important;
+}
+
+/* "Any feedback?" hint text */
+.vedic-theme .feedback-panel p {
+  color: rgba(80, 50, 20, 0.6) !important;
+  -webkit-text-fill-color: rgba(80, 50, 20, 0.6) !important;
+}
+
+/* Text input */
+.vedic-theme .feedback-panel input[type="text"] {
+  background: rgba(255, 249, 236, 0.8) !important;
+  border: 1px solid rgba(184, 134, 11, 0.2) !important;
+  color: #2C1810 !important;
+  -webkit-text-fill-color: #2C1810 !important;
+}
+
+.vedic-theme .feedback-panel input[type="text"]::placeholder {
+  color: rgba(80, 50, 20, 0.35) !important;
+}
+
+/* Close (X) button icon */
+.vedic-theme .feedback-panel button:not([aria-label="Submit feedback"]) svg {
+  color: rgba(80, 50, 20, 0.4) !important;
+}
+
+/* Send/submit button — keep gold gradient as-is (works in both themes) */
+
+/* ── Traditional Indian border pattern on section edges ── */
+.vedic-theme main #kundali-earnings::before,
+.vedic-theme main #kundali-investments::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 5%;
+  right: 5%;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 6px,
+    rgba(184, 134, 11, 0.5) 6px,
+    rgba(184, 134, 11, 0.5) 10px,
+    transparent 10px,
+    transparent 14px,
+    rgba(212, 160, 18, 0.35) 14px,
+    rgba(212, 160, 18, 0.35) 16px,
+    transparent 16px,
+    transparent 20px
+  );
+  pointer-events: none;
+}
+
+/* ── Section scroll-margin: prevent mobile fixed header (≈56px) from hiding
+   the top of a section when navigated via sidebar or hash link ── */
+section[id^="kundali-"] {
+  scroll-margin-top: 64px; /* desktop: 0 extra, but safe default */
+}
+
+@media (max-width: 1023px) {
+  section[id^="kundali-"] {
+    scroll-margin-top: 64px;
+  }
+}
+
+/* ── PillarCard hover lift — CSS-only to prevent framer whileHover jitter ──
+   whileHover caused a re-render loop when parent selected-state updated while
+   the card was mid-animation. CSS :hover is instantaneous and doesn't fight
+   with React state updates. ── */
+.pillar-card-hover:hover {
+  transform: translateY(-4px);
+}
+
+/* ── Luxury Purchase Timing card: must stay overflow:visible so the absolute
+   popup can render above the card bounds. Override the Vedic .rounded-2xl rule. ── */
+.vedic-theme main .luxury-card-outer {
+  overflow: visible !important;
+}
+
+/* ── Investment popup overlay: fully opaque, isolated from Vedic card overrides ── */
+.vedic-theme main .luxury-popup-overlay {
+  background: #FFFDF7 !important;
+  border: 2px solid rgba(184, 134, 11, 0.3) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(184,134,11,0.1) !important;
+}
+
+.vedic-theme main .luxury-popup-overlay::after,
+.vedic-theme main .luxury-popup-overlay::before {
+  display: none !important;
+}
+
+/* Child rounded elements inside the popup — keep solid opaque cream, no shimmer */
+.vedic-theme main .luxury-popup-overlay .rounded-xl,
+.vedic-theme main .luxury-popup-overlay .rounded-lg,
+.vedic-theme main .luxury-popup-overlay .rounded-full:not(.phase-dot) {
+  background: rgba(255, 249, 236, 0.6) !important;
+  border-color: rgba(184, 134, 11, 0.12) !important;
+  box-shadow: none !important;
+}
+
+/* Popup text colours — dark readable on cream bg */
+.vedic-theme main .luxury-popup-overlay h4,
+.vedic-theme main .luxury-popup-overlay p,
+.vedic-theme main .luxury-popup-overlay span,
+.vedic-theme main .luxury-popup-overlay div {
+  color: #2C1810 !important;
+  -webkit-text-fill-color: #2C1810 !important;
+}
+
+/* Muted secondary text */
+.vedic-theme main .luxury-popup-overlay p[style*="168,155,200"],
+.vedic-theme main .luxury-popup-overlay span[style*="168,155,200"] {
+  color: rgba(80, 50, 20, 0.6) !important;
+  -webkit-text-fill-color: rgba(80, 50, 20, 0.6) !important;
+}
+
+/* Score bar track */
+.vedic-theme main .luxury-popup-overlay .rounded-full.overflow-hidden {
+  background: rgba(184, 134, 11, 0.08) !important;
+}
+
+/* Verdict badge — preserve its semantic color */
+.vedic-theme main .luxury-popup-overlay .rounded-full[style*="border"] {
+  background: unset !important;
+}
+
+/* Investment popup: dark island — always dark regardless of theme (previous rule kept for backward compat) */
+.vedic-theme main .vedic-dark-island.rounded-xl,
+.vedic-theme main .vedic-dark-island .rounded-xl {
+  background: unset !important;
+  border: unset !important;
+  box-shadow: unset !important;
+}
+
+/* ── Income Growth Timeline — preserve SVG circle fill colours in Vedic theme ──
+   The phase-coloured dots (gold/teal/pink) use SVG fill presentation attributes.
+   The global Vedic override does not touch fill on circles (only CSS color),
+   but backdrop-filter and stacking can desaturate them. Force opacity.
+   Scoped to `.ig-dot` (the filled dots) on purpose — the outer ring `.ig-ring`
+   uses opacity to express its hover state, and a blanket rule here pinned it
+   flat in Vedic. ── */
+.vedic-theme main .income-growth-card svg circle.ig-dot {
+  opacity: 1 !important;
+}
+
+/* ── InsightInfoTooltip fade-in animation ── */
+@keyframes tooltipFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Navbar logo pill — mobile only ── */
+.navbar-logo-pill {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  box-shadow: none;
+}
+@media (min-width: 768px) {
+  .navbar-logo-pill {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   HIDE CHATBOT BUTTON IN SAMPLE KUNDALI PREVIEW
+   The sample PDF contains a chatbot button that creates duplicate UI when
+   shown in the landing page preview. Hide it with a positioned overlay.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* Disabled - white overlay removed to eliminate white box appearance
+.sample-kundali-viewer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(to top, #ffffff 0%, #ffffff 40%, rgba(255,255,255,0.8) 70%, transparent 100%);
+  z-index: 999;
+  pointer-events: none;
+}
+
+/* Desktop-specific: narrower gradient from the right */
+/*
+@media (min-width: 1024px) {
+  .sample-kundali-viewer::after {
+    width: 500px;
+    height: 200px;
+    background: 
+      linear-gradient(to left, #ffffff 0%, #ffffff 50%, rgba(255,255,255,0.5) 80%, transparent 100%),
+      linear-gradient(to top, #ffffff 0%, #ffffff 30%, rgba(255,255,255,0.3) 60%, transparent 100%);
+  }
+}
+
+/* Mobile - full width bottom fade */
+/*
+@media (max-width: 640px) {
+  .sample-kundali-viewer::after {
+    height: 140px;
+    background: linear-gradient(to top, #ffffff 0%, #ffffff 35%, rgba(255,255,255,0.7) 65%, transparent 100%);
+  }
+}
+*/
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   ADMIN PANEL THEME TOKENS — /admin only
+   ══════════════════════════════════════════════════════════════════════════════
+
+   Deliberately DECOUPLED from the Vedic theme above. The admin panel must never
+   carry the `.vedic-theme` class and must never wrap its content in `<main>`:
+   almost every rule in the block above is scoped to `.vedic-theme main …` and is
+   written for kundali insight cards. Applied to a dense admin UI it would force
+   every <td>/<span> to one brown, repaint each `.rounded-2xl` with a 10-second
+   shimmer, and — via the allowlist — keep `.text-white` white, which is invisible
+   on cream. Admin drives everything from the tokens below instead.
+
+   Values are bare HSL triples so Tailwind's <alpha-value> works and the panel's
+   many `/20` `/30` `/60` opacity variants keep functioning.
+
+   Contrast against --admin-surface was measured, not eyeballed; every accent and
+   text token clears 4.5:1 in both themes. If you retune one, re-measure it.
+   ────────────────────────────────────────────────────────────────────────────── */
+
+.admin-theme {
+  /* Cosmic / dark — matches what the panel looked like before theming existed. */
+  --admin-bg: 220 20% 4%;
+  --admin-surface: 220 18% 9%;
+  --admin-surface-2: 220 15% 14%;
+  --admin-surface-3: 220 14% 20%;
+  --admin-border: 220 14% 24%;
+  --admin-border-subtle: 220 14% 18%;
+
+  --admin-text: 0 0% 100%;
+  --admin-text-secondary: 220 9% 78%;
+  --admin-text-muted: 220 9% 60%;
+  --admin-text-faint: 220 9% 52%;      /* 4.64:1 — was gray-500/600 at ~3.7:1 */
+
+  --admin-ok: 152 76% 50%;
+  --admin-warn: 38 92% 55%;
+  --admin-danger: 0 84% 63%;
+  --admin-info: 217 91% 63%;
+  --admin-indigo: 239 84% 70%;         /* 4.79:1 — indigo-400 sat at 4.11:1 */
+  --admin-purple: 271 81% 66%;
+  --admin-cyan: 189 94% 55%;
+  --admin-orange: 27 96% 55%;
+
+  /* Solid-fill buttons. Theme-invariant on purpose: a filled accent button
+     carries white text in both themes, so its background must stay dark enough
+     for white regardless of the surface behind it (all >= 5.3:1, verified). */
+  --admin-danger-strong: 0 74% 42%;
+  --admin-orange-strong: 21 90% 38%;
+  --admin-indigo-strong: 243 60% 45%;
+  --admin-info-strong: 217 75% 38%;
+
+  --admin-scheme: dark;
+}
+
+.admin-theme[data-admin-theme="vedic"] {
+  /* Cream + antique gold, borrowed from the Vedic palette in
+     kundali-theme-context.tsx so the two surfaces read as one product. */
+  --admin-bg: 40 100% 98%;
+  --admin-surface: 44 60% 99%;
+  --admin-surface-2: 42 55% 95%;
+  --admin-surface-3: 42 50% 91%;
+  --admin-border: 45 60% 78%;
+  --admin-border-subtle: 45 50% 88%;
+
+  --admin-text: 18 46% 13%;            /* #2C1810 family */
+  --admin-text-secondary: 28 60% 22%;
+  --admin-text-muted: 33 44% 33%;
+  --admin-text-faint: 36 30% 42%;      /* 4.51:1 */
+
+  /* Darkened from their dark-theme counterparts: the -400 family used on the
+     dark panel drops to ~1.5:1 on cream. */
+  --admin-ok: 142 61% 26%;
+  --admin-warn: 32 90% 34%;
+  --admin-danger: 343 82% 35%;
+  --admin-info: 217 75% 40%;
+  --admin-indigo: 243 60% 45%;
+  --admin-purple: 271 55% 42%;
+  --admin-cyan: 190 80% 28%;
+  --admin-orange: 25 85% 38%;
+
+  --admin-scheme: light;
+}
+
+/* Native controls: date/time pickers and scrollbars follow the panel, otherwise
+   Vedic renders a dark system picker on a cream form. */
+.admin-theme { color-scheme: var(--admin-scheme); }

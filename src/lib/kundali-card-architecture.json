@@ -1,0 +1,188 @@
+[
+  {
+    "section": "Identity & Chart Foundation",
+    "section_id": "identity",
+    "section_subtitle": "Your cosmic financial DNA — the chart, archetype, and core scores that define your money blueprint.",
+    "cards": [
+      {
+        "card_title": "Money Personality Archetype",
+        "card_type": "foundation",
+        "primary_metric": "Archetype label with emoji, tagline, strengths array, blind spots array, ruling planets, key houses",
+        "user_question_answered": "What is my fundamental relationship with money, and what are my natural financial strengths and blind spots?",
+        "priority": "high",
+        "component": "ArchetypeHeroSection",
+        "layout_hint": "hero_left"
+      },
+      {
+        "card_title": "Birth Chart (D1 Rasi)",
+        "card_type": "foundation",
+        "primary_metric": "North Indian chart visual with planet positions, house lords, lagna/moon/sun sign badges",
+        "user_question_answered": "What does my Vedic birth chart look like, and which planets and houses drive my financial life?",
+        "priority": "high",
+        "component": "ArchetypeHeroSection",
+        "layout_hint": "hero_right"
+      }
+    ]
+  },
+  {
+    "section": "Earnings",
+    "section_id": "earnings",
+    "section_subtitle": "Your income trajectory — what's coming, how stable it is, and when to push for more.",
+    "cards": [
+      {
+        "card_title": "Upcoming Earnings Strength",
+        "card_type": "timeline",
+        "primary_metric": "12-month wave chart with score 0–100 per month, inflection point marker",
+        "user_question_answered": "How strong will my earning power be over the next 12 months, and when does it peak?",
+        "priority": "high",
+        "component": "EarningsStrengthCard",
+        "layout_hint": "full_width"
+      },
+      {
+        "card_title": "Career & Salary",
+        "card_type": "score",
+        "primary_metric": "Score out of 100 with stability label + promotion window date range",
+        "user_question_answered": "How stable is my career, and when is the best window to negotiate a raise or promotion?",
+        "priority": "high",
+        "component": "CareerSalaryCard",
+        "layout_hint": "half_width"
+      },
+      {
+        "card_title": "Income Stability",
+        "card_type": "score",
+        "primary_metric": "Percentage (0–100%) displayed as circular ring gauge",
+        "user_question_answered": "How reliable and consistent is my income flow right now?",
+        "priority": "medium",
+        "component": "IncomeStabilityCard",
+        "layout_hint": "half_width"
+      }
+    ]
+  },
+  {
+    "section": "Risks & Protection",
+    "section_id": "risks",
+    "section_subtitle": "Threats to watch — debt exposure, fraud risk, and planetary caution periods.",
+    "cards": [
+      {
+        "card_title": "Dasha Risk Meter",
+        "card_type": "score",
+        "primary_metric": "Score out of 100 as circular gauge + risk label (High / Moderate / Low) + dasha status badge + retrograde badge",
+        "user_question_answered": "What is my overall financial risk level right now based on my planetary period?",
+        "priority": "high",
+        "component": "DashaRiskMeterCard",
+        "layout_hint": "half_width"
+      },
+      {
+        "card_title": "Loan & EMI Advisor",
+        "card_type": "decision",
+        "primary_metric": "Verdict label (Favorable / Delay / Avoid) + safe EMI limit as % of income",
+        "user_question_answered": "Should I take a loan right now, and what EMI burden can I safely handle?",
+        "priority": "high",
+        "component": "LoanEmiCard",
+        "layout_hint": "half_width"
+      },
+      {
+        "card_title": "Debt Trap Risk",
+        "card_type": "score",
+        "primary_metric": "Risk level pill (Low / Moderate / High)",
+        "user_question_answered": "Am I at risk of falling into a debt cycle in this period?",
+        "priority": "medium",
+        "component": "DebtTrapRiskCard",
+        "layout_hint": "half_width"
+      },
+      {
+        "card_title": "Scam & Fraud Alert",
+        "card_type": "decision",
+        "primary_metric": "Alert level (High / Medium / Low) with transit context label",
+        "user_question_answered": "How vulnerable am I to financial scams or bad deals right now?",
+        "priority": "medium",
+        "component": "ScamWarningCard",
+        "layout_hint": "half_width"
+      }
+    ]
+  },
+  {
+    "section": "Investments & Asset Purchases",
+    "section_id": "investments",
+    "section_subtitle": "When to buy, what to buy, and the market sentiment aligned to your chart.",
+    "cards": [
+      {
+        "card_title": "Investment Timing",
+        "card_type": "decision",
+        "primary_metric": "Sentiment label (Bullish / Bearish) with 5-bar momentum chart + property window sub-card (buy year + current phase)",
+        "user_question_answered": "Is this a good time to invest, and when should I buy property?",
+        "priority": "high",
+        "component": "InvestmentTimingCard",
+        "layout_hint": "full_width"
+      },
+      {
+        "card_title": "Auspicious Buy Timing",
+        "card_type": "decision",
+        "primary_metric": "Per-asset verdict (Auspicious / Delay / Avoid) with score for Property, Gold, Vehicle",
+        "user_question_answered": "Which major assets should I buy now, and which should I wait on?",
+        "priority": "high",
+        "component": "AuspiciousBuyTimingCard",
+        "layout_hint": "half_width"
+      },
+      {
+        "card_title": "Asset Acquisition Windows",
+        "card_type": "decision",
+        "primary_metric": "3 visual cards (Property, Gold, Vehicles) with priority level and planetary reasoning",
+        "user_question_answered": "What are the best windows to acquire major assets, and what's the astrological reasoning?",
+        "priority": "medium",
+        "component": "AssetAcquisitionSection",
+        "layout_hint": "full_width_grid_3"
+      }
+    ]
+  },
+  {
+    "section": "Wealth Outlook",
+    "section_id": "wealth",
+    "section_subtitle": "The big picture — your net worth trajectory, lifestyle sustainability, and wealth milestones.",
+    "cards": [
+      {
+        "card_title": "Net Worth Trajectory",
+        "card_type": "score",
+        "primary_metric": "Score out of 1000 + karma phase quote + lunar alignment + dominant planet influence",
+        "user_question_answered": "What is my overall wealth score, and what cosmic factors are driving it?",
+        "priority": "high",
+        "component": "NetWorthTrajectoryCard",
+        "layout_hint": "half_width"
+      },
+      {
+        "card_title": "Lifestyle Index",
+        "card_type": "score",
+        "primary_metric": "Level label (High / Medium / Low) with stability status",
+        "user_question_answered": "Can my current lifestyle be sustained by my financial trajectory?",
+        "priority": "medium",
+        "component": "LifestyleIndexCard",
+        "layout_hint": "half_width"
+      },
+      {
+        "card_title": "Wealth Milestones",
+        "card_type": "timeline",
+        "primary_metric": "Vertical timeline with current phase highlighted + future milestone labels and dates",
+        "user_question_answered": "What are the key wealth phases ahead of me, and which one am I in right now?",
+        "priority": "high",
+        "component": "WealthMilestonesCard",
+        "layout_hint": "full_width"
+      }
+    ]
+  },
+  {
+    "section": "Long-Term Forecast",
+    "section_id": "forecast",
+    "section_subtitle": "Your 5-year financial roadmap — peak years, consolidation phases, and expansion windows.",
+    "cards": [
+      {
+        "card_title": "5-Year Celestial Horizon",
+        "card_type": "timeline",
+        "primary_metric": "Horizontal 5-year timeline with phase labels per year + peak year star marker + mahadasha shift note",
+        "user_question_answered": "What does my financial trajectory look like over the next 5 years, and when is my peak?",
+        "priority": "high",
+        "component": "CelestialHorizonCard",
+        "layout_hint": "full_width"
+      }
+    ]
+  }
+]

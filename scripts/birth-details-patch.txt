@@ -1,0 +1,43 @@
+                {birthDetails && (
+                  <div className="flex items-center justify-center gap-5 flex-wrap">
+                    {birthDetails.date && (
+                      <div className="flex items-center gap-2">
+                        <div className="flex items-center justify-center w-8 h-8 rounded-lg" style={{ background: colors.pageBg === "#FFFCF5" ? "rgba(184,134,11,0.06)" : "rgba(242,197,114,0.08)" }}>
+                          <Calendar className="w-4 h-4" style={{ color: colors.pageBg === "#FFFCF5" ? "rgba(139,105,20,0.7)" : "rgba(242,197,114,0.7)" }} />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-[9px] uppercase tracking-wider font-semibold" style={{ color: colors.pageBg === "#FFFCF5" ? "rgba(61,43,31,0.5)" : "rgba(214,198,245,0.4)" }}>Birth Date</span>
+                          <span className="text-[11px] font-bold" style={{ color: colors.pageBg === "#FFFCF5" ? "rgba(61,43,31,0.85)" : "rgba(245,233,255,0.85)" }}>{birthDetails.date}</span>
+                        </div>
+                      </div>
+                    )}
+                    {birthDetails.date && birthDetails.time && (
+                      <div className="w-px h-8 rounded-full" style={{ background: colors.pageBg === "#FFFCF5" ? "rgba(184,134,11,0.2)" : "rgba(242,197,114,0.15)" }} />
+                    )}
+                    {birthDetails.time && (
+                      <div className="flex items-center gap-2">
+                        <div className="flex items-center justify-center w-8 h-8 rounded-lg" style={{ background: colors.pageBg === "#FFFCF5" ? "rgba(184,134,11,0.06)" : "rgba(242,197,114,0.08)" }}>
+                          <Clock className="w-4 h-4" style={{ color: colors.pageBg === "#FFFCF5" ? "rgba(139,105,20,0.7)" : "rgba(242,197,114,0.7)" }} />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-[9px] uppercase tracking-wider font-semibold" style={{ color: colors.pageBg === "#FFFCF5" ? "rgba(61,43,31,0.5)" : "rgba(214,198,245,0.4)" }}>Birth Time</span>
+                          <span className="text-[11px] font-bold" style={{ color: colors.pageBg === "#FFFCF5" ? "rgba(61,43,31,0.85)" : "rgba(245,233,255,0.85)" }}>{birthDetails.time}</span>
+                        </div>
+                      </div>
+                    )}
+                    {birthDetails.time && birthDetails.place && (
+                      <div className="w-px h-8 rounded-full" style={{ background: colors.pageBg === "#FFFCF5" ? "rgba(184,134,11,0.2)" : "rgba(242,197,114,0.15)" }} />
+                    )}
+                    {birthDetails.place && (
+                      <div className="flex items-center gap-2">
+                        <div className="flex items-center justify-center w-8 h-8 rounded-lg" style={{ background: colors.pageBg === "#FFFCF5" ? "rgba(184,134,11,0.06)" : "rgba(242,197,114,0.08)" }}>
+                          <MapPin className="w-4 h-4" style={{ color: colors.pageBg === "#FFFCF5" ? "rgba(139,105,20,0.7)" : "rgba(242,197,114,0.7)" }} />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-[9px] uppercase tracking-wider font-semibold" style={{ color: colors.pageBg === "#FFFCF5" ? "rgba(61,43,31,0.5)" : "rgba(214,198,245,0.4)" }}>Location</span>
+                          <span className="text-[11px] font-bold truncate max-w-[120px]" style={{ color: colors.pageBg === "#FFFCF5" ? "rgba(61,43,31,0.85)" : "rgba(245,233,255,0.85)" }}>{birthDetails.place}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" fill="none">
+  <!-- Outer border -->
+  <rect x="10" y="10" width="580" height="480" rx="4" stroke="rgba(184,134,11,0.35)" stroke-width="1.5" fill="none"/>
+  
+  <!-- Inner border -->
+  <rect x="18" y="18" width="564" height="464" rx="2" stroke="rgba(184,134,11,0.2)" stroke-width="0.8" fill="none"/>
+
+  <!-- Main grid lines - horizontal -->
+  <line x1="18" y1="140" x2="582" y2="140" stroke="rgba(184,134,11,0.3)" stroke-width="1"/>
+  <line x1="18" y1="250" x2="582" y2="250" stroke="rgba(184,134,11,0.3)" stroke-width="1"/>
+  <line x1="18" y1="360" x2="582" y2="360" stroke="rgba(184,134,11,0.3)" stroke-width="1"/>
+
+  <!-- Main grid lines - vertical -->
+  <line x1="160" y1="18" x2="160" y2="482" stroke="rgba(184,134,11,0.3)" stroke-width="1"/>
+  <line x1="300" y1="18" x2="300" y2="482" stroke="rgba(184,134,11,0.3)" stroke-width="1"/>
+  <line x1="440" y1="18" x2="440" y2="482" stroke="rgba(184,134,11,0.3)" stroke-width="1"/>
+
+  <!-- Diagonal lines - top left -->
+  <line x1="160" y1="140" x2="18" y2="18" stroke="rgba(184,134,11,0.25)" stroke-width="0.8"/>
+  <!-- Diagonal lines - top right -->
+  <line x1="440" y1="140" x2="582" y2="18" stroke="rgba(184,134,11,0.25)" stroke-width="0.8"/>
+  <!-- Diagonal lines - bottom left -->
+  <line x1="160" y1="360" x2="18" y2="482" stroke="rgba(184,134,11,0.25)" stroke-width="0.8"/>
+  <!-- Diagonal lines - bottom right -->
+  <line x1="440" y1="360" x2="582" y2="482" stroke="rgba(184,134,11,0.25)" stroke-width="0.8"/>
+
+  <!-- Center square (Brahma Sthana) -->
+  <rect x="248" y="200" width="104" height="100" rx="2" stroke="rgba(184,134,11,0.4)" stroke-width="1.2" fill="none"/>
+  <rect x="255" y="207" width="90" height="86" rx="1" stroke="rgba(184,134,11,0.2)" stroke-width="0.6" fill="none"/>
+
+  <!-- Curved lines - top houses (bhava cusps) -->
+  <!-- Top center curve (house 3-4 boundary) -->
+  <path d="M 160 140 C 200 90, 260 90, 300 140" stroke="rgba(184,134,11,0.25)" stroke-width="0.8" fill="none"/>
+  <path d="M 300 140 C 340 90, 400 90, 440 140" stroke="rgba(184,134,11,0.25)" stroke-width="0.8" fill="none"/>
+
+  <!-- Bottom center curves -->
+  <path d="M 160 360 C 200 410, 260 410, 300 360" stroke="rgba(184,134,11,0.25)" stroke-width="0.8" fill="none"/>
+  <path d="M 300 360 C 340 410, 400 410, 440 360" stroke="rgba(184,134,11,0.25)" stroke-width="0.8" fill="none"/>
+
+  <!-- Left side curves -->
+  <path d="M 160 140 C 110 180, 110 210, 160 250" stroke="rgba(184,134,11,0.25)" stroke-width="0.8" fill="none"/>
+  <path d="M 160 250 C 110 290, 110 320, 160 360" stroke="rgba(184,134,11,0.25)" stroke-width="0.8" fill="none"/>
+
+  <!-- Right side curves -->
+  <path d="M 440 140 C 490 180, 490 210, 440 250" stroke="rgba(184,134,11,0.25)" stroke-width="0.8" fill="none"/>
+  <path d="M 440 250 C 490 290, 490 320, 440 360" stroke="rgba(184,134,11,0.25)" stroke-width="0.8" fill="none"/>
+
+  <!-- Inner connecting lines to center square -->
+  <line x1="160" y1="250" x2="248" y2="250" stroke="rgba(184,134,11,0.3)" stroke-width="0.8"/>
+  <line x1="352" y1="250" x2="440" y2="250" stroke="rgba(184,134,11,0.3)" stroke-width="0.8"/>
+  <line x1="300" y1="140" x2="300" y2="200" stroke="rgba(184,134,11,0.3)" stroke-width="0.8"/>
+  <line x1="300" y1="300" x2="300" y2="360" stroke="rgba(184,134,11,0.3)" stroke-width="0.8"/>
+
+  <!-- Small decorative dots at intersections -->
+  <circle cx="160" cy="140" r="3" fill="rgba(184,134,11,0.2)"/>
+  <circle cx="300" cy="140" r="3" fill="rgba(184,134,11,0.2)"/>
+  <circle cx="440" cy="140" r="3" fill="rgba(184,134,11,0.2)"/>
+  <circle cx="160" cy="250" r="3" fill="rgba(184,134,11,0.2)"/>
+  <circle cx="440" cy="250" r="3" fill="rgba(184,134,11,0.2)"/>
+  <circle cx="160" cy="360" r="3" fill="rgba(184,134,11,0.2)"/>
+  <circle cx="300" cy="360" r="3" fill="rgba(184,134,11,0.2)"/>
+  <circle cx="440" cy="360" r="3" fill="rgba(184,134,11,0.2)"/>
+  <circle cx="300" cy="250" r="4" fill="rgba(184,134,11,0.15)"/>
+
+  <!-- Corner decorative curves -->
+  <path d="M 18 18 C 50 50, 50 50, 18 80" stroke="rgba(184,134,11,0.15)" stroke-width="0.6" fill="none"/>
+  <path d="M 582 18 C 550 50, 550 50, 582 80" stroke="rgba(184,134,11,0.15)" stroke-width="0.6" fill="none"/>
+  <path d="M 18 482 C 50 450, 50 450, 18 420" stroke="rgba(184,134,11,0.15)" stroke-width="0.6" fill="none"/>
+  <path d="M 582 482 C 550 450, 550 450, 582 420" stroke="rgba(184,134,11,0.15)" stroke-width="0.6" fill="none"/>
+</svg>

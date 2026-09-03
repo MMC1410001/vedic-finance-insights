@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJX6J34M3S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WJX6J34M3S');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K8SZDDSJ');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Microsoft Clarity is loaded via GTM (container GTM-K8SZDDSJ), not
+         directly here. Keeping both caused duplicate initialisation — see
+         ANALYTICS.md → "Microsoft Clarity Setup" for the rationale. -->
+    <meta charset="UTF-8" />
+    <!-- Served from public/ verbatim. This previously pointed at
+         /src/assets/vedicfinance-logo.png — a dev-server path that Vite hashes at
+         build time, so the built site 404'd its own favicon. It was also a
+         960x1115 / 497 KB PNG being painted at 16px. -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>VedicFinance | Vedic Astrology Powered Financial Intelligence</title>
+    <meta name="description" content="Analyze your birth chart to identify optimal timing for income growth, salary hikes, and bonus periods with astrological insights.">
+    
+    
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet" crossorigin="anonymous" />
+    <meta property="og:title" content="VedicFinance | Vedic Astrology Powered Financial Intelligence">
+  <meta name="twitter:title" content="VedicFinance | Vedic Astrology Powered Financial Intelligence">
+  <meta property="og:description" content="Analyze your birth chart to identify optimal timing for income growth, salary hikes, and bonus periods with astrological insights.">
+  <meta name="twitter:description" content="Analyze your birth chart to identify optimal timing for income growth, salary hikes, and bonus periods with astrological insights.">
+  <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b7f5f5a5-79e3-4ac4-98d8-0e015b14d138/id-preview-185d1be0--53f86981-e236-43b5-a33f-728d151b49d0.lovable.app-1774578889635.png">
+  <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b7f5f5a5-79e3-4ac4-98d8-0e015b14d138/id-preview-185d1be0--53f86981-e236-43b5-a33f-728d151b49d0.lovable.app-1774578889635.png">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+  <body style="background: #ffffff;">
+    <!-- Pre-mount background. The body paints before React mounts (and shows
+         through iOS over-scroll after), so it must match the route being
+         loaded: white for the landing/marketing/auth pages, cosmic #080310 for
+         the theme-aware app pages unless the user stored the vedic theme.
+         Runs here — parser-blocking, right after <body> opens — so it lands
+         before first paint. -->
+    <script>
+      (function () {
+        var dark = /^\/(kundali|profile|chat|ai-chat|upcoming-features)(\/|$)/.test(location.pathname);
+        if (dark) {
+          // Vedic is the app's default, so only an explicit cosmic choice goes dark.
+          try { dark = localStorage.getItem('kundali-theme') === 'cosmic'; } catch (e) { dark = false; }
+          if (dark) document.body.style.background = '#080310';
+        }
+      })();
+    </script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K8SZDDSJ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- Zoho Payments SDK — preload + async so it is ready before the widget is opened -->
+    <link rel="preload" href="https://static.zohocdn.com/zpay/zpay-js/v1/zpayments.js" as="script" />
+    <script src="https://static.zohocdn.com/zpay/zpay-js/v1/zpayments.js" async></script>
+  </body>
+</html>

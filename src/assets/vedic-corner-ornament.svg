@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" fill="none">
+  <!-- Traditional Indian corner ornament -->
+  <g opacity="0.85">
+    <!-- Outer border arcs -->
+    <path d="M0 0 Q100 8 200 0" stroke="#B8860B" stroke-width="2" fill="none"/>
+    <path d="M0 0 Q8 100 0 200" stroke="#B8860B" stroke-width="2" fill="none"/>
+    <!-- Second arc layer -->
+    <path d="M5 5 Q90 15 180 5" stroke="#C6930A" stroke-width="1.5" fill="none"/>
+    <path d="M5 5 Q15 90 5 180" stroke="#C6930A" stroke-width="1.5" fill="none"/>
+    <!-- Inner decorative curves -->
+    <path d="M15 15 Q70 25 130 15" stroke="#D4A012" stroke-width="1.2" fill="none"/>
+    <path d="M15 15 Q25 70 15 130" stroke="#D4A012" stroke-width="1.2" fill="none"/>
+    <!-- Scalloped inner arc -->
+    <path d="M25 25 C35 20 45 22 55 25 C65 22 75 20 85 25" stroke="#B8860B" stroke-width="1" fill="none"/>
+    <path d="M25 25 C20 35 22 45 25 55 C22 65 20 75 25 85" stroke="#B8860B" stroke-width="1" fill="none"/>
+    <!-- Lotus petal motifs -->
+    <path d="M35 35 C45 25 55 25 65 35 C55 40 45 40 35 35Z" fill="#C6930A" opacity="0.5"/>
+    <path d="M35 35 C25 45 25 55 35 65 C40 55 40 45 35 35Z" fill="#C6930A" opacity="0.5"/>
+    <!-- Smaller lotus -->
+    <path d="M55 20 C60 15 65 15 70 20 C65 22 60 22 55 20Z" fill="#B8860B" opacity="0.4"/>
+    <path d="M20 55 C15 60 15 65 20 70 C22 65 22 60 20 55Z" fill="#B8860B" opacity="0.4"/>
+    <!-- Decorative dots -->
+    <circle cx="18" cy="18" r="3" fill="#B8860B" opacity="0.7"/>
+    <circle cx="50" cy="10" r="2.5" fill="#C6930A" opacity="0.6"/>
+    <circle cx="10" cy="50" r="2.5" fill="#C6930A" opacity="0.6"/>
+    <circle cx="80" cy="7" r="2" fill="#D4A012" opacity="0.5"/>
+    <circle cx="7" cy="80" r="2" fill="#D4A012" opacity="0.5"/>
+    <circle cx="110" cy="5" r="1.5" fill="#B8860B" opacity="0.4"/>
+    <circle cx="5" cy="110" r="1.5" fill="#B8860B" opacity="0.4"/>
+    <circle cx="140" cy="3" r="1.5" fill="#C6930A" opacity="0.35"/>
+    <circle cx="3" cy="140" r="1.5" fill="#C6930A" opacity="0.35"/>
+    <!-- Star/sparkle accents -->
+    <path d="M45 45 L47 41 L49 45 L53 47 L49 49 L47 53 L45 49 L41 47Z" fill="#B8860B" opacity="0.6"/>
+    <path d="M75 30 L76 28 L77 30 L79 31 L77 32 L76 34 L75 32 L73 31Z" fill="#C6930A" opacity="0.5"/>
+    <path d="M30 75 L31 73 L32 75 L34 76 L32 77 L31 79 L30 77 L28 76Z" fill="#C6930A" opacity="0.5"/>
+    <!-- Diagonal accent line -->
+    <line x1="25" y1="25" x2="90" y2="90" stroke="#B8860B" stroke-width="0.5" opacity="0.3" stroke-dasharray="3 4"/>
+  </g>
+</svg>

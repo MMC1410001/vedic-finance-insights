@@ -1,0 +1,180 @@
+[
+  {
+    "section": "Identity & Chart Foundation",
+    "section_id": "identity",
+    "section_description": "Who you are financially — your cosmic DNA and the chart it's built on.",
+    "cards": [
+      {
+        "card_title": "Money Archetype",
+        "card_type": "foundation",
+        "primary_metric": "Archetype name with strengths and blind spots",
+        "user_question_answered": "What is my fundamental money personality and how does it shape my financial behavior?",
+        "priority": "high",
+        "current_component": "ArchetypeHeroSection (left panel)"
+      },
+      {
+        "card_title": "Birth Chart",
+        "card_type": "foundation",
+        "primary_metric": "D1 Rasi chart with Lagna, Moon, Sun signs",
+        "user_question_answered": "What does my Vedic birth chart look like and what are my key planetary placements?",
+        "priority": "medium",
+        "current_component": "ArchetypeHeroSection (right panel)"
+      },
+      {
+        "card_title": "Net Worth Trajectory",
+        "card_type": "score",
+        "primary_metric": "Score out of 1000 with lunar phase and dominant planet",
+        "user_question_answered": "What is my overall financial karma score and which cosmic factors are driving it?",
+        "priority": "high",
+        "current_component": "AdvancedInsightCards → NetWorthTrajectoryCard"
+      },
+      {
+        "card_title": "Lifestyle Index",
+        "card_type": "score",
+        "primary_metric": "Level label (High/Medium/Low) with stability status",
+        "user_question_answered": "Can I sustain my current lifestyle based on my financial blueprint?",
+        "priority": "low",
+        "current_component": "FinancialMetricsCards → LifestyleIndexCard"
+      }
+    ]
+  },
+  {
+    "section": "Earnings",
+    "section_id": "earnings",
+    "section_description": "Your income trajectory — what's coming, how stable it is, and when to push for more.",
+    "cards": [
+      {
+        "card_title": "Earnings Projection",
+        "card_type": "timeline",
+        "primary_metric": "12-month wave chart with monthly scores",
+        "user_question_answered": "How will my earning power change over the next 12 months?",
+        "priority": "high",
+        "current_component": "TopCards → EarningsStrengthCard"
+      },
+      {
+        "card_title": "Career & Salary",
+        "card_type": "score",
+        "primary_metric": "Score out of 100 with stability label",
+        "user_question_answered": "How stable is my career and how strong is my salary trajectory right now?",
+        "priority": "high",
+        "current_component": "InsightCards → CareerSalaryCard"
+      },
+      {
+        "card_title": "Income Stability",
+        "card_type": "score",
+        "primary_metric": "Percentage (0–100%) with dasha alignment note",
+        "user_question_answered": "How reliable and consistent is my income flow in the current period?",
+        "priority": "medium",
+        "current_component": "FinancialMetricsCards → IncomeStabilityCard"
+      }
+    ]
+  },
+  {
+    "section": "Risks & Protection",
+    "section_id": "risks",
+    "section_description": "Threats to watch — debt exposure, fraud risk, and planetary caution periods.",
+    "cards": [
+      {
+        "card_title": "Risk Meter",
+        "card_type": "score",
+        "primary_metric": "Score out of 100 with dasha and retrograde status badges",
+        "user_question_answered": "What is my overall financial risk level right now?",
+        "priority": "high",
+        "current_component": "TopCards → DashaRiskMeterCard"
+      },
+      {
+        "card_title": "Loan & EMI Advisor",
+        "card_type": "decision",
+        "primary_metric": "Verdict (Favorable / Delay / Avoid) with safe EMI percentage",
+        "user_question_answered": "Should I take on new debt right now, and how much EMI can I safely handle?",
+        "priority": "high",
+        "current_component": "InsightCards → LoanEmiCard"
+      },
+      {
+        "card_title": "Debt Trap Risk",
+        "card_type": "score",
+        "primary_metric": "Level label (Low / Moderate / High) with karmic context",
+        "user_question_answered": "Am I at risk of falling into a debt trap based on my current planetary cycle?",
+        "priority": "medium",
+        "current_component": "FinancialMetricsCards → DebtTrapRiskCard"
+      },
+      {
+        "card_title": "Scam Warning",
+        "card_type": "decision",
+        "primary_metric": "Alert level (Low / Medium / High) with transit context",
+        "user_question_answered": "Am I in a period where I'm more vulnerable to financial fraud or bad deals?",
+        "priority": "medium",
+        "current_component": "FinancialMetricsCards → ScamWarningCard"
+      }
+    ]
+  },
+  {
+    "section": "Investments & Asset Purchases",
+    "section_id": "investments",
+    "section_description": "When to buy, what to buy, and the market sentiment for your chart.",
+    "cards": [
+      {
+        "card_title": "Investment Timing",
+        "card_type": "decision",
+        "primary_metric": "Sentiment label (Bullish / Neutral / Bearish) with bar chart",
+        "user_question_answered": "Is this a good time for me to invest in SIPs and market instruments?",
+        "priority": "high",
+        "current_component": "FinancialMetricsCards → InvestmentTimingCard (left)"
+      },
+      {
+        "card_title": "Property Window",
+        "card_type": "decision",
+        "primary_metric": "Target buy year with current phase advice",
+        "user_question_answered": "When should I buy property, and should I rent or buy right now?",
+        "priority": "medium",
+        "current_component": "FinancialMetricsCards → InvestmentTimingCard (right)"
+      },
+      {
+        "card_title": "Buy Timing Summary",
+        "card_type": "decision",
+        "primary_metric": "Per-asset verdict (Auspicious / Delay / Avoid) with score",
+        "user_question_answered": "Is now a good time to buy property, gold, or a vehicle?",
+        "priority": "high",
+        "current_component": "TopCards → AuspiciousBuyTimingCard"
+      },
+      {
+        "card_title": "Asset Acquisition Windows",
+        "card_type": "decision",
+        "primary_metric": "Per-asset priority (High / Med / Wait) with reasoning",
+        "user_question_answered": "Which major assets should I prioritize buying and what's the astrological reasoning?",
+        "priority": "medium",
+        "current_component": "AdvancedInsightCards → AssetAcquisitionSection"
+      }
+    ]
+  },
+  {
+    "section": "Wealth Outlook",
+    "section_id": "wealth",
+    "section_description": "The big picture — your wealth milestones and where you're headed.",
+    "cards": [
+      {
+        "card_title": "Wealth Milestones",
+        "card_type": "timeline",
+        "primary_metric": "Current dasha phase with next milestone year",
+        "user_question_answered": "What wealth-building phase am I in and what comes next?",
+        "priority": "high",
+        "current_component": "InsightCards → WealthMilestonesCard"
+      }
+    ]
+  },
+  {
+    "section": "Long-Term Forecast",
+    "section_id": "forecast",
+    "section_description": "Your 5-year financial roadmap — peak years, consolidation, and expansion.",
+    "cards": [
+      {
+        "card_title": "5-Year Financial Horizon",
+        "card_type": "timeline",
+        "primary_metric": "Year-by-year phase labels with peak year highlighted",
+        "user_question_answered": "What does my financial trajectory look like over the next 5 years?",
+        "priority": "high",
+        "current_component": "AdvancedInsightCards → CelestialHorizonCard"
+      }
+    ]
+  }
+]

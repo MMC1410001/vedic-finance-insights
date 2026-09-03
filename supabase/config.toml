@@ -1,0 +1,56 @@
+[api]
+enabled = true
+port = 54321
+
+[db]
+port = 54322
+
+[studio]
+enabled = true
+port = 54323
+
+[auth]
+enabled = true
+site_url = "http://localhost:5173"
+
+[auth.email]
+enable_signup = true
+enable_confirmations = false
+
+[functions.generate-report]
+verify_jwt = false
+
+# chat and business-decision spend the OpenAI budget, so the platform gate stays
+# on. Note this only proves the caller presented *a* valid JWT — the public anon
+# key qualifies — so it is defence in depth, not the real check. Both functions
+# call requireUser() from _shared/require-paid-user.ts, which is what actually
+# establishes a signed-in (and, for chat, paying) user.
+[functions.chat]
+verify_jwt = true
+
+[functions.business-decision]
+verify_jwt = true
+
+[functions.luxury-analysis]
+verify_jwt = false
+
+[functions.investment-baskets]
+verify_jwt = false
+
+[functions.market-data]
+verify_jwt = false
+
+[functions.create-payment-order]
+verify_jwt = false
+
+[functions.payment-webhook]
+verify_jwt = false
+
+[functions.payment-status]
+verify_jwt = false
+
+# Guests have no JWT and they are exactly who this records, so the platform gate
+# must stay off. The function validates session_id, caps writes per IP, and only
+# ever writes with the service role — the client cannot forge a row.
+[functions.track-visit]
+verify_jwt = false
