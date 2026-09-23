@@ -76,8 +76,7 @@ npm run dev
 
 ## About this repository
 
-This is a de-branded copy of a working product, published as a portfolio piece. The product
-name, company name and all customer data have been removed, and every credential in
+Every credential in
 `.env.example` is a placeholder.
 
 The legal pages (`src/pages/Terms.tsx`, `Disclaimer.tsx`) and the footer are kept because they
